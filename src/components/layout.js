@@ -1,51 +1,32 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
- */
-
-import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import React from "react"
 
 import Header from "./header"
-import "./layout.css"
+import Footer from "./footer"
+import BackToTopButton from "./back-to-top-btn"
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
+export default function Layout({
+  children,
+  bodyClasses,
+  heroContent,
+  heroImg,
+  mobileHeroImg,
+}) {
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: `var(--size-content)`,
-          padding: `var(--size-gutter)`,
-        }}
-      >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `var(--space-5)`,
-            fontSize: `var(--font-sm)`,
-          }}
-        >
-          © {new Date().getFullYear()} &middot; Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
+      <div className={bodyClasses + " relative overflow-hidden"}>
+        <Header
+          heroContent={heroContent}
+          heroImg={heroImg}
+          mobileHeroImg={mobileHeroImg}
+        />
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 xl:px-0 z-20 relative">
+          {children}
+        </main>
+        <Footer />
+      </div>
+      <div className="relative z-50">
+        <BackToTopButton />
       </div>
     </>
   )
 }
-
-export default Layout

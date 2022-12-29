@@ -9,10 +9,11 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `Casa Patron: Short Term Vacation Rental Home in Alto, NM Near Ruidoso & Ski Apache`,
+    description: `Escape to the stunning mountains of Alto, NM and stay at Casa Patron, a beautiful short term vacation rental home located near Ruidoso. This family-friendly home is perfect for large parties and is conveniently located next to Ski Apache. Experience the beauty of nature and make unforgettable memories at Casa Patron.`,
+    titleTemplate: "Casa Patron",
+    author: `@riefer02`,
+    siteUrl: `https://casapatronalto.com/`,
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -39,5 +40,6 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    "gatsby-plugin-postcss",
   ],
 }

@@ -1,122 +1,109 @@
 import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import { graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+
 import * as styles from "../components/index.module.css"
 
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
+export default function IndexPage({
+  data: {
+    communityImg,
+    exploreImg,
+    inspireImg,
+    phoneDemoImg,
+    homeHeroImg,
+    flocksLogoPurple,
+    homeMobileHeroImg,
+    site: {
+      siteMetadata: { description, siteUrl },
+    },
   },
-  {
-    text: "Examples",
-    url: "https://github.com/gatsbyjs/gatsby/tree/master/examples",
-    description:
-      "A collection of websites ranging from very basic to complex/complete that illustrate how to accomplish specific tasks within your Gatsby sites.",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Learn how to add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-  },
-]
+}) {
+  const jumboPanelOne = {
+    image: {
+      imageSrc: communityImg,
+      imageAlt: "People playing basketball in a commmunity",
+    },
+    headline: {
+      spanText: "Connecting",
+      spanColor: "#7593FF",
+      headerText: "Communities",
+      headlineClassName: "mb-4 text-center lg:text-left",
+    },
+    paragraph: {
+      paragraphText:
+        "Be your authentic self and meet like-minded people through local groups and events in your hometown or while traveling.",
+      paragraphClassName: "max-w-xl text-center lg:text-left text-grey-100",
+    },
+  }
 
-const samplePageLinks = [
-  {
-    text: "Page 2",
-    url: "page-2",
-    badge: false,
-    description:
-      "A simple example of linking to another page within a Gatsby site",
-  },
-  { text: "TypeScript", url: "using-typescript" },
-  { text: "Server Side Rendering", url: "using-ssr" },
-  { text: "Deferred Static Generation", url: "using-dsg" },
-]
+  const jumboPanelTwo = {
+    image: {
+      imageSrc: exploreImg,
+      imageAlt: "People watching the sunset in a canyon.",
+    },
+    headline: {
+      spanText: "Explore",
+      spanColor: "#FF986C",
+      headerText: "New Places",
+      headlineClassName: "mb-4 text-center lg:text-left",
+    },
+    paragraph: {
+      paragraphText:
+        "Discover new places and hidden locations through short videos from hobbyists, adventurers, and thrill-seekers who know their area best.",
+      paragraphClassName:
+        "max-w-lg xl:max-w-[600px] text-center lg:text-left xl:-mr-8 text-grey-100",
+    },
+  }
 
-const moreLinks = [
-  { text: "Join us on Discord", url: "https://gatsby.dev/discord" },
-  {
-    text: "Documentation",
-    url: "https://gatsbyjs.com/docs/",
-  },
-  {
-    text: "Starters",
-    url: "https://gatsbyjs.com/starters/",
-  },
-  {
-    text: "Showcase",
-    url: "https://gatsbyjs.com/showcase/",
-  },
-  {
-    text: "Contributing",
-    url: "https://www.gatsbyjs.com/contributing/",
-  },
-  { text: "Issues", url: "https://github.com/gatsbyjs/gatsby/issues" },
-]
+  const jumboPanelThree = {
+    image: {
+      imageSrc: inspireImg,
+      imageAlt: "A digital nomad at a concert taking photos.",
+    },
+    headline: {
+      spanText: "Experiences",
+      spanColor: "#FF7575",
+      headerText: "that Inspire",
+      headlineClassName: "mb-4 text-center lg:text-left",
+    },
+    paragraph: {
+      paragraphText:
+        "Capture your favorite experiences and get inspired by interacting with real world events and communities.",
+      paragraphClassName:
+        "max-w-xl xl:max-w-[500px] text-center lg:text-left text-grey-100",
+    },
+  }
 
-const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
+  const schemaMarkup = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "flockx",
+    description,
+    url: siteUrl,
+    logo: "https://res.cloudinary.com/fetch-ai/image/upload/v1669748935/flockx-website/Logos/flockx-logo-white.svg",
+    image:
+      "https://res.cloudinary.com/fetch-ai/image/upload/v1669748935/flockx-website/Logos/flockx-logo-white.svg",
+    sameAs: [
+      "https://twitter.com/flockxofficial",
+      "https://flockx.io",
+      "https://www.linkedin.com/company/flockxofficial/",
+    ],
+    keywords: [
+      "experiences",
+      "mobile app",
+      "events",
+      "community",
+      "flockx",
+    ].toString(),
+    founder: "Humayun Sheikh",
+    slogan: "Find Your Flock",
+  }
 
-const IndexPage = () => (
-  <Layout>
-    <div className={styles.textCenter}>
-      <StaticImage
-        src="../images/example.png"
-        loading="eager"
-        width={64}
-        quality={95}
-        formats={["auto", "webp", "avif"]}
-        alt=""
-        style={{ marginBottom: `var(--space-3)` }}
-      />
-      <h1>
-        Welcome to <b>Gatsby!</b>
-      </h1>
-      <p className={styles.intro}>
-        <b>Example pages:</b>{" "}
-        {samplePageLinks.map((link, i) => (
-          <React.Fragment key={link.url}>
-            <Link to={link.url}>{link.text}</Link>
-            {i !== samplePageLinks.length - 1 && <> · </>}
-          </React.Fragment>
-        ))}
-        <br />
-        Edit <code>src/pages/index.js</code> to update this page.
-      </p>
-    </div>
-    <ul className={styles.list}>
-      {links.map(link => (
-        <li key={link.url} className={styles.listItem}>
-          <a
-            className={styles.listItemLink}
-            href={`${link.url}${utmParameters}`}
-          >
-            {link.text} ↗
-          </a>
-          <p className={styles.listItemDescription}>{link.description}</p>
-        </li>
-      ))}
-    </ul>
-    {moreLinks.map((link, i) => (
-      <React.Fragment key={link.url}>
-        <a href={`${link.url}${utmParameters}`}>{link.text}</a>
-        {i !== moreLinks.length - 1 && <> · </>}
-      </React.Fragment>
-    ))}
-  </Layout>
-)
+  return <Layout>Casa Patron Here</Layout>
+}
 
 /**
  * Head export to define metadata for the page
@@ -125,4 +112,48 @@ const IndexPage = () => (
  */
 export const Head = () => <Seo title="Home" />
 
-export default IndexPage
+export const query = graphql`
+  query HomePageQuery {
+    site {
+      siteMetadata {
+        description
+        siteUrl
+      }
+    }
+    communityImg: file(name: { eq: "living-room-1" }) {
+      childImageSharp {
+        gatsbyImageData(width: 889)
+      }
+    }
+    exploreImg: file(name: { eq: "living-room-1" }) {
+      childImageSharp {
+        gatsbyImageData(width: 889)
+      }
+    }
+    inspireImg: file(name: { eq: "living-room-1" }) {
+      childImageSharp {
+        gatsbyImageData(width: 889)
+      }
+    }
+    phoneDemoImg: file(name: { eq: "living-room-1" }) {
+      childImageSharp {
+        gatsbyImageData(quality: 100, width: 445)
+      }
+    }
+    homeHeroImg: file(name: { eq: "living-room-1" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    flocksLogoPurple: file(name: { eq: "living-room-1" }) {
+      childImageSharp {
+        gatsbyImageData(width: 318, quality: 100)
+      }
+    }
+    homeMobileHeroImg: file(name: { eq: "living-room-1" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+  }
+`
