@@ -4,8 +4,12 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import JumboPanel from "../components/jumbo-panel"
+import Paragraph from "../components/paragraph"
+import Headline from "../components/headline"
+import Spacer from "../components/spacer"
 
-import * as styles from "../components/index.module.css"
+// import * as styles from "../components/index.module.css"
 
 export default function IndexPage({
   data: {
@@ -14,11 +18,7 @@ export default function IndexPage({
     inspireImg,
     phoneDemoImg,
     homeHeroImg,
-    flocksLogoPurple,
     homeMobileHeroImg,
-    site: {
-      siteMetadata: { description, siteUrl },
-    },
   },
 }) {
   const jumboPanelOne = {
@@ -77,32 +77,100 @@ export default function IndexPage({
     },
   }
 
-  const schemaMarkup = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "flockx",
-    description,
-    url: siteUrl,
-    logo: "https://res.cloudinary.com/fetch-ai/image/upload/v1669748935/flockx-website/Logos/flockx-logo-white.svg",
-    image:
-      "https://res.cloudinary.com/fetch-ai/image/upload/v1669748935/flockx-website/Logos/flockx-logo-white.svg",
-    sameAs: [
-      "https://twitter.com/flockxofficial",
-      "https://flockx.io",
-      "https://www.linkedin.com/company/flockxofficial/",
-    ],
-    keywords: [
-      "experiences",
-      "mobile app",
-      "events",
-      "community",
-      "flockx",
-    ].toString(),
-    founder: "Humayun Sheikh",
-    slogan: "Find Your Flock",
-  }
+  return (
+    <Layout
+      heroContent={HomePageHeroContent}
+      mobileHeroImg={homeMobileHeroImg}
+      heroImg={homeHeroImg}
+    >
+      <div id="what-is-flockx-section"></div>
+      <Spacer />
+      <Spacer className="block sm:hidden" />
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center justify-center">
+        <div className="col-span-6 order-2 lg:order-1">
+          <div className="xl:ml-24 w-full flex lg:block items-center justify-center ">
+            <GatsbyImage
+              image={getImage(phoneDemoImg)}
+              alt="A model of the new flockx mobile application."
+            />
+          </div>
+        </div>
+        <div className="col-span-6 mx-auto lg:pl-20 order-1 lg:order-2">
+          <Headline
+            headerText=""
+            className="mb-4 lg:mb-10 lg:max-w-md xl:leading-[83px] text-center lg:text-left xl:text-[64px]"
+            spanColor="#D965FE"
+            postSpanText="What's flockx?"
+          />
+          <Paragraph
+            paragraphText="flockx connects you to local communities through your favorite experiences, helping you to build friendships, and find events for your next adventure across the U.S."
+            className="max-w-xl lg:max-w-full mx-auto text-center lg:text-left"
+          />
+          <Spacer className="lg:hidden" />
+        </div>
+      </div>
+      <Spacer />
+      <Spacer className="block md:hidden" />
+      <JumboPanel content={jumboPanelOne} />
+      <Spacer />
+      <Spacer className="block md:hidden" />
+      <JumboPanel content={jumboPanelTwo} imageSide="left" />
+      <Spacer />
+      <Spacer className="block md:hidden" />
+      <JumboPanel content={jumboPanelThree} />
+      <Spacer className="hidden sm:block md:hidden" />
+      {/* Callout here */}
+      <Spacer className="block md:hidden" />
+      <Spacer />
+    </Layout>
+  )
+}
 
-  return <Layout>Casa Patron Here</Layout>
+function HomePageHeroContent() {
+  const primaryHeaderStyles =
+    "text-5xl lg:text-6xl xl:text-[72px] xl:leading-[77px] text-left font-light mb-2 xl:mx-0 text-white"
+
+  return (
+    <>
+      <div className="-mt-[30%] sm:-mt-0">
+        <h1 className="hidden">
+          Let's Create Videos to Inspire Your Favorites Communities
+        </h1>
+        <a href="#what-is-flockx-section" className="mb-10 sm:mb-8 block">
+          <div className={primaryHeaderStyles}>
+            Let's
+            <div className="inline-flex pl-2 sm:pl-3 lg:pl-4 overflow-hidden w-[53%] mx-auto">
+              <div className="flex-col h-full relative inline-flex animate-spin-words">
+                <span className="opacity-0 ">Create</span>
+                <span className="absolute text-secondary-red">Create</span>
+                <span className="absolute translate-y-[100%] overflow-hidden text-secondary-green">
+                  Explore
+                </span>
+                <span className="absolute translate-y-[200%] text-secondary-blue">
+                  Share
+                </span>
+                <span className="absolute translate-y-[300%] text-secondary-red">
+                  Create
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className="hidden sm:block">
+            <div className={primaryHeaderStyles}>Experiences With</div>
+            <div className={primaryHeaderStyles}>Your Community.</div>
+          </div>
+          <div className="sm:hidden">
+            <div className={primaryHeaderStyles}>Experiences</div>
+            <div className={primaryHeaderStyles}>With Your</div>
+            <div className={primaryHeaderStyles}>Community.</div>
+          </div>
+        </a>
+        <p className="block sm:pt-0 font-light sm:text-lg md:text-xl lg:text-2xl text-white">
+          Available in the US
+        </p>
+      </div>
+    </>
+  )
 }
 
 /**
@@ -110,10 +178,102 @@ export default function IndexPage({
  *
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
-export const Head = () => <Seo title="Home" />
+
+export const Head = ({
+  data: {
+    site: {
+      siteMetadata: { description, siteUrl },
+    },
+  },
+}) => {
+  const schemaMarkup = {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    name: "Casa Patron",
+    description:
+      "Escape to the stunning mountains of Alto, NM and stay at Casa Patron, a beautiful short term vacation rental home located near Ruidoso. This family-friendly home is perfect for large parties and is conveniently located next to Ski Apache. Experience the beauty of nature and make unforgettable memories at Casa Patron.",
+    image: "http://www.example.com/casa-patron/image.jpg",
+    telephone: "+1-505-555-1212",
+    email: "info@casapatron.com",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "123 Main Street",
+      addressLocality: "Alto",
+      addressRegion: "NM",
+      postalCode: "88312",
+      addressCountry: "US",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 33.684566,
+      longitude: -105.743576,
+    },
+    url: "http://www.example.com/casa-patron/",
+    sameAs: [
+      "http://www.facebook.com/casapatron",
+      "http://www.twitter.com/casapatron",
+      "http://www.instagram.com/casapatron",
+    ],
+    amenityFeature: [
+      "Free parking",
+      "Free WiFi",
+      "Outdoor pool",
+      "Fitness center",
+      "Air conditioning",
+      "Hot tub",
+      "Cable TV",
+      "Kitchenette",
+    ],
+    lodgingUnit: [
+      {
+        "@type": "LodgingUnit",
+        name: "One Bedroom Suite",
+        description:
+          "Our spacious one bedroom suite features a private bedroom with a king-size bed and a pull-out sofa in the living room. The fully equipped kitchenette and dining area make it easy to cook meals during your stay. The suite also has a private balcony with stunning mountain views.",
+        image: "http://www.example.com/casa-patron/one-bedroom-suite.jpg",
+        numberOfRooms: 1,
+        occupancy: 4,
+        bed: {
+          "@type": "BedDetails",
+          numberOfBeds: 1,
+          typeOfBed: "King-size bed",
+        },
+        amenityFeature: [
+          "Air conditioning",
+          "Cable TV",
+          "Free WiFi",
+          "Private balcony",
+          "Fully equipped kitchenette",
+        ],
+      },
+      {
+        "@type": "LodgingUnit",
+        name: "Two Bedroom Suite",
+        description:
+          "Our spacious two bedroom suite features two private bedrooms, each with a queen-size bed, and a pull-out sofa in the living room. The fully equipped kitchen and dining area make it easy to cook meals during your stay. The suite also has a private balcony with stunning mountain views.",
+      },
+    ],
+  }
+
+  return (
+    <Seo
+      keywords={[
+        "vacation rental",
+        "new mexico",
+        "alto",
+        "ski apache",
+        "ruidoso",
+        "retreat",
+        "casa patron",
+      ]}
+      description={description}
+      schemaMarkup={schemaMarkup}
+    />
+  )
+}
 
 export const query = graphql`
-  query HomePageQuery {
+  query IndexPageQuery {
     site {
       siteMetadata {
         description
@@ -143,11 +303,6 @@ export const query = graphql`
     homeHeroImg: file(name: { eq: "living-room-1" }) {
       childImageSharp {
         gatsbyImageData
-      }
-    }
-    flocksLogoPurple: file(name: { eq: "living-room-1" }) {
-      childImageSharp {
-        gatsbyImageData(width: 318, quality: 100)
       }
     }
     homeMobileHeroImg: file(name: { eq: "living-room-1" }) {

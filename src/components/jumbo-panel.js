@@ -1,21 +1,15 @@
 import React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import Paragraph from "./typography/Paragraph"
-import Headline from "./typography/Headline"
-import Spacer from "./utility/Spacer"
-import ExperienceVideo from "./quests/ExperienceVideo"
+import Paragraph from "./paragraph"
+import Headline from "./headline"
+import Spacer from "./spacer"
 
-export default function JumboPanel({
-  imageSide = "right",
-  content,
-  isTeamPage = false,
-}) {
+export default function JumboPanel({ imageSide = "right", content }) {
   const {
     image: { imageSrc, imageAlt },
     headline: { spanText, spanColor, headerText, headlineClassName },
     paragraph: { paragraphText, paragraphClassName },
     list,
-    experienceID,
   } = content
 
   const listStyles = "flex flex-col gap-12 lg:gap-16"
@@ -79,13 +73,6 @@ export default function JumboPanel({
         ? `hidden lg:block absolute -top-8 -right-8 opacity-50 overflow-hidden rounded-3xl`
         : `hidden lg:block absolute -top-8 -left-8 opacity-50 overflow-hidden rounded-3xl`
 
-    if (experienceID)
-      return (
-        <div className="order-2 lg:order-1 col-span-6 mx-auto lg:-mt-24">
-          <ExperienceVideo questID={experienceID} />
-        </div>
-      )
-
     return (
       <div className={mediaContentWrapperStyles}>
         <div className={shadowImageWrapperStyles}>
@@ -111,11 +98,7 @@ export default function JumboPanel({
   if (imageSide === "right")
     return (
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
-        <div
-          className={`mb-0 md:mb-10 lg:mb-0 lg:col-span-6 mx-auto lg:mx-0 ${
-            isTeamPage ? "lg:-mt-28" : ""
-          } ${experienceID ? "col-span-6" : ""}`}
-        >
+        <div className={`mb-0 md:mb-10 lg:mb-0 lg:col-span-6 mx-auto lg:mx-0`}>
           {jumboContent()}
           <Spacer className="block lg:hidden" sizeY={3} />
         </div>
@@ -128,9 +111,7 @@ export default function JumboPanel({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
         {jumboMediaContent()}
         <div
-          className={`ml-auto lg:order-2 lg:col-span-6 mx-auto lg:mx-0 mb-0 md:mb-10 lg:mb-0 lg:pl-16 ${
-            isTeamPage ? "lg:-mt-28 !max-w-full" : ""
-          } ${experienceID ? "col-span-6" : ""}`}
+          className={`ml-auto lg:order-2 lg:col-span-6 mx-auto lg:mx-0 mb-0 md:mb-10 lg:mb-0 lg:pl-16`}
         >
           {jumboContent()}
           <Spacer className="block lg:hidden" sizeY={3} />

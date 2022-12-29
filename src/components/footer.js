@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-// import SiteSocials from "../molecules/SiteSocials"
 
 const footerNavigation = [
   {
@@ -13,7 +12,7 @@ const footerNavigation = [
 ]
 
 function Footer() {
-  const linkStyles = "text-sm hover:underline text-grey"
+  const linkStyles = "hover:underline"
 
   return (
     <>
@@ -38,27 +37,14 @@ function Footer() {
                   )
                 } else {
                   return (
-                    <>
-                      {item.url ? (
-                        <Link to={item.url} className={linkStyles} key={index}>
-                          {item.label}
-                        </Link>
-                      ) : (
-                        <button
-                          type="button"
-                          id={item.id}
-                          key={item.label}
-                          className="text-sm hover:pointer hover:underline text-grey"
-                        >
-                          {item.label}
-                        </button>
-                      )}
-                    </>
+                    <Link to={item.url} className={linkStyles} key={index}>
+                      {item.label}
+                    </Link>
                   )
                 }
               })}
             </div>
-            {/* <SiteSocials /> */}
+            <div>Socials Go Here</div>
           </div>
         </div>
       </footer>

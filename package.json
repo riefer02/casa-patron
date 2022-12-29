@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "casa-patron",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Casa Patron: Short Term Vacation Rental Home in Alto, NM Near Ruidoso & Ski Apache",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Andrew Riefenstahl <andrew.riefenstahl@gmail.com>",
   "dependencies": {
     "gatsby": "^5.3.3",
     "gatsby-plugin-image": "^3.3.2",
