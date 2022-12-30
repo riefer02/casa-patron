@@ -1,6 +1,6 @@
 import React from "react"
 import { useLocation } from "@reach/router"
-import Fade from "./Fade"
+import Fade from "./fade"
 import { Link } from "gatsby"
 import { useLockBodyScroll } from "../utils/hooks"
 

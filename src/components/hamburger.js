@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react"
-import Fade from "./Fade"
+import Fade from "./fade"
 
 export default function Hamburger({ onClickHandler, toggle }) {
   const buttonRef = useRef(null)
