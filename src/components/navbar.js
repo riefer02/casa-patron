@@ -1,5 +1,6 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { useLocation } from "@reach/router"
 import MobileMenu from "./mobile-nav"
 import Hamburger from "./hamburger"
@@ -21,11 +22,24 @@ export default function NavBar({ mobileNavActive, setMobileNavActive }) {
     setMobileNavActive(!mobileNavActive)
   }
 
+  const query = graphql`
+    query NavBarQuery {
+      logo: file(name: { eq: "casa-patron-logo" }) {
+        childImageSharp {
+          gatsbyImageData
+        }
+      }
+    }
+  `
+
+  const { logo } = useStaticQuery(query)
+
+  console.log(logo)
   return (
     <nav
       className={`absolute top-0 w-full z-40 ${
-        isHeroPage(pathname) ? "bg-transparent" : "bg-grey"
-      } ${mobileNavActive ? "!bg-grey" : ""}`}
+        isHeroPage(pathname) ? "bg-transparent" : "bg-gray-100"
+      } ${mobileNavActive ? "bg-gray-600" : ""}`}
     >
       <div className="max-w-7xl md:max-w-5xl lg:max-w-7xl mx-auto px-4 sm:px-6 xl:px-0">
         <div className="relative flex items-center justify-between h-16">
@@ -37,7 +51,9 @@ export default function NavBar({ mobileNavActive, setMobileNavActive }) {
           </div>
           <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-between">
             <div className="flex-shrink-0 flex items-center mr-auto">
-              <Link to="/">Logo Here</Link>
+              <Link to="/" className="w-[80px]">
+                <GatsbyImage image={getImage(logo)} />
+              </Link>
             </div>
             <div className="hidden sm:flex items-center sm:ml-6">
               <div className="flex space-x-4">

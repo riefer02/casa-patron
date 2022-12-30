@@ -65,13 +65,13 @@ export default function JumboPanel({ imageSide = "right", content }) {
   let jumboMediaContent = () => {
     const mediaContentWrapperStyles =
       imageSide === "right"
-        ? `relative lg:col-span-6 justify-self-end mx-auto lg:mx-0 lg:-mr-80 lg:h-[696px]`
-        : `relative order-2 lg:order-1 lg:mb-0 lg:col-span-6 mx-auto lg:mx-0 lg:-ml-96 lg:h-[696px]`
+        ? `relative lg:col-span-6 justify-self-end mx-auto lg:mx-0`
+        : `relative order-2 lg:order-1 lg:mb-0 lg:col-span-6 mx-auto lg:mx-0 max-w-2xl mx-auto`
 
     const shadowImageWrapperStyles =
       imageSide === "right"
-        ? `hidden lg:block absolute -top-8 -right-8 opacity-50 overflow-hidden rounded-3xl`
-        : `hidden lg:block absolute -top-8 -left-8 opacity-50 overflow-hidden rounded-3xl`
+        ? `hidden lg:block absolute -top-8 -right-8 opacity-50 overflow-hidden rounded-3xl w-full`
+        : `hidden lg:block absolute -top-8 -left-8 opacity-50 overflow-hidden rounded-3xl w-full`
 
     return (
       <div className={mediaContentWrapperStyles}>
@@ -100,7 +100,6 @@ export default function JumboPanel({ imageSide = "right", content }) {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
         <div className={`mb-0 md:mb-10 lg:mb-0 lg:col-span-6 mx-auto lg:mx-0`}>
           {jumboContent()}
-          <Spacer className="block lg:hidden" sizeY={3} />
         </div>
         {jumboMediaContent()}
       </div>
@@ -108,13 +107,12 @@ export default function JumboPanel({ imageSide = "right", content }) {
 
   if (imageSide === "left")
     return (
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
         {jumboMediaContent()}
         <div
-          className={`ml-auto lg:order-2 lg:col-span-6 mx-auto lg:mx-0 mb-0 md:mb-10 lg:mb-0 lg:pl-16`}
+          className={`ml-auto lg:order-2 lg:col-span-6 mx-auto lg:mx-0 mb-0 md:mb-10 lg:mb-0 flex items-start justify-center flex-col px-4 md:px-14`}
         >
           {jumboContent()}
-          <Spacer className="block lg:hidden" sizeY={3} />
         </div>
       </div>
     )

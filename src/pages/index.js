@@ -1,125 +1,130 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import JumboPanel from "../components/jumbo-panel"
-import Paragraph from "../components/paragraph"
-import Headline from "../components/headline"
 import Spacer from "../components/spacer"
+import ImageGallery from "../components/image-gallery"
 
 // import * as styles from "../components/index.module.css"
 
 export default function IndexPage({
   data: {
-    communityImg,
-    exploreImg,
-    inspireImg,
-    phoneDemoImg,
+    casaPatronBirdImg,
+    terraceSummerImg,
+    greatRoomImg,
+    winterTerraceImg,
     homeHeroImg,
-    homeMobileHeroImg,
+    mobileHeroImg,
+    forestBeautyImg,
+    blueBuildingImg,
+    hotTubeImg,
+    kitchenOneImg,
+    kitchenTwoImg,
+    valleyImg,
+    gardenMonkImg,
+    ladyInRuinsImg,
+    terraceSummerGamesImg,
+    bienvenidosImg,
   },
 }) {
-  const jumboPanelOne = {
-    image: {
-      imageSrc: communityImg,
-      imageAlt: "People playing basketball in a commmunity",
+  const panels = [
+    {
+      image: {
+        imageSrc: casaPatronBirdImg,
+        imageAlt:
+          "The Casa Patron mural, a black bird painted over a yellow background.",
+      },
+      headline: {
+        spanText: "Experience",
+        spanColor: "#7593FF",
+        headerText: "New Mexico",
+      },
+      paragraph: {
+        paragraphText:
+          "Relax and unwind in the stunning Casa Patron cabin, located near Ski Apache in Alto, NM. Experience the magic of the mountains from the comfort of a high occupancy modern cabin.",
+      },
     },
-    headline: {
-      spanText: "Connecting",
-      spanColor: "#7593FF",
-      headerText: "Communities",
-      headlineClassName: "mb-4 text-center lg:text-left",
+    {
+      image: {
+        imageSrc: terraceSummerImg,
+        imageAlt: "People watching the sunset in a canyon.",
+      },
+      headline: {
+        spanText: "Magic",
+        spanColor: "#FF986C",
+        headerText: "of the Mountains",
+      },
+      paragraph: {
+        paragraphText:
+          "Experience the beauty of nature at our vacation destination in Alto, NM. From wildflowers to pine forests, there's something for everyone to enjoy.",
+      },
     },
-    paragraph: {
-      paragraphText:
-        "Be your authentic self and meet like-minded people through local groups and events in your hometown or while traveling.",
-      paragraphClassName: "max-w-xl text-center lg:text-left text-grey-100",
+    {
+      image: {
+        imageSrc: greatRoomImg,
+        imageAlt: "People watching the sunset in a canyon.",
+      },
+      headline: {
+        spanText: "Relax",
+        spanColor: "#FF986C",
+        headerText: "and Unwind",
+      },
+      paragraph: {
+        paragraphText:
+          "Gather with friends and family in our spacious great room, complete with plenty of seating and a top-of-the-line entertainment system. The perfect spot for movie nights or game nights.",
+      },
     },
-  }
+    {
+      image: {
+        imageSrc: winterTerraceImg,
+        imageAlt: "A digital nomad at a concert taking photos.",
+      },
+      headline: {
+        spanText: "Create",
+        spanColor: "#FF7575",
+        headerText: "Memories",
+      },
+      paragraph: {
+        paragraphText:
+          "Discover unforgettable experiences at our vacation destination. From breathtaking views to top-notch amenities, you'll create lasting memories here.",
+      },
+    },
+  ]
 
-  const jumboPanelTwo = {
-    image: {
-      imageSrc: exploreImg,
-      imageAlt: "People watching the sunset in a canyon.",
-    },
-    headline: {
-      spanText: "Explore",
-      spanColor: "#FF986C",
-      headerText: "New Places",
-      headlineClassName: "mb-4 text-center lg:text-left",
-    },
-    paragraph: {
-      paragraphText:
-        "Discover new places and hidden locations through short videos from hobbyists, adventurers, and thrill-seekers who know their area best.",
-      paragraphClassName:
-        "max-w-lg xl:max-w-[600px] text-center lg:text-left xl:-mr-8 text-grey-100",
-    },
-  }
-
-  const jumboPanelThree = {
-    image: {
-      imageSrc: inspireImg,
-      imageAlt: "A digital nomad at a concert taking photos.",
-    },
-    headline: {
-      spanText: "Experiences",
-      spanColor: "#FF7575",
-      headerText: "that Inspire",
-      headlineClassName: "mb-4 text-center lg:text-left",
-    },
-    paragraph: {
-      paragraphText:
-        "Capture your favorite experiences and get inspired by interacting with real world events and communities.",
-      paragraphClassName:
-        "max-w-xl xl:max-w-[500px] text-center lg:text-left text-grey-100",
-    },
-  }
+  const imagesGallery = [
+    terraceSummerGamesImg,
+    blueBuildingImg,
+    kitchenOneImg,
+    ladyInRuinsImg,
+    valleyImg,
+    hotTubeImg,
+    bienvenidosImg,
+    gardenMonkImg,
+    forestBeautyImg,
+    kitchenTwoImg,
+  ]
 
   return (
     <Layout
       heroContent={HomePageHeroContent}
-      mobileHeroImg={homeMobileHeroImg}
+      mobileHeroImg={mobileHeroImg}
       heroImg={homeHeroImg}
     >
       <div id="what-is-flockx-section"></div>
-      <Spacer />
-      <Spacer className="block sm:hidden" />
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center justify-center">
-        <div className="col-span-6 order-2 lg:order-1">
-          <div className="xl:ml-24 w-full flex lg:block items-center justify-center ">
-            <GatsbyImage
-              image={getImage(phoneDemoImg)}
-              alt="A model of the new flockx mobile application."
-            />
-          </div>
-        </div>
-        <div className="col-span-6 mx-auto lg:pl-20 order-1 lg:order-2">
-          <Headline
-            headerText=""
-            className="mb-4 lg:mb-10 lg:max-w-md xl:leading-[83px] text-center lg:text-left xl:text-[64px]"
-            spanColor="#D965FE"
-            postSpanText="What's flockx?"
-          />
-          <Paragraph
-            paragraphText="flockx connects you to local communities through your favorite experiences, helping you to build friendships, and find events for your next adventure across the U.S."
-            className="max-w-xl lg:max-w-full mx-auto text-center lg:text-left"
-          />
-          <Spacer className="lg:hidden" />
-        </div>
-      </div>
-      <Spacer />
-      <Spacer className="block md:hidden" />
-      <JumboPanel content={jumboPanelOne} />
-      <Spacer />
-      <Spacer className="block md:hidden" />
-      <JumboPanel content={jumboPanelTwo} imageSide="left" />
-      <Spacer />
-      <Spacer className="block md:hidden" />
-      <JumboPanel content={jumboPanelThree} />
+      {panels.map(content => (
+        <>
+          <Spacer />
+          <Spacer className="block sm:hidden" />
+          <JumboPanel content={content} imageSide="left" />
+        </>
+      ))}
       <Spacer className="hidden sm:block md:hidden" />
       {/* Callout here */}
+      <Spacer />
+      <Spacer className="block sm:hidden" />
+      <ImageGallery images={imagesGallery} />
       <Spacer className="block md:hidden" />
       <Spacer />
     </Layout>
@@ -128,7 +133,7 @@ export default function IndexPage({
 
 function HomePageHeroContent() {
   const primaryHeaderStyles =
-    "text-5xl lg:text-6xl xl:text-[72px] xl:leading-[77px] text-left font-light mb-2 xl:mx-0 text-white"
+    "text-5xl md:text-6xl lg:text-6xl xl:text-[72px] xl:leading-[77px] text-left font-light mb-2 xl:mx-0 text-white"
 
   return (
     <>
@@ -136,37 +141,37 @@ function HomePageHeroContent() {
         <h1 className="hidden">
           Let's Create Videos to Inspire Your Favorites Communities
         </h1>
-        <a href="#what-is-flockx-section" className="mb-10 sm:mb-8 block">
+        <a href="#what-is-flockx-section" className="mb-3 sm:mb-4 block">
           <div className={primaryHeaderStyles}>
             Let's
-            <div className="inline-flex pl-2 sm:pl-3 lg:pl-4 overflow-hidden w-[53%] mx-auto">
+            <div className="inline-flex pl-2 sm:pl-3 lg:pl-4 overflow-hidden w-[70%] mx-auto">
               <div className="flex-col h-full relative inline-flex animate-spin-words">
-                <span className="opacity-0 ">Create</span>
-                <span className="absolute text-secondary-red">Create</span>
+                <span className="opacity-0 ">Ski.</span>
+                <span className="absolute text-secondary-red">Ski</span>
                 <span className="absolute translate-y-[100%] overflow-hidden text-secondary-green">
                   Explore
                 </span>
                 <span className="absolute translate-y-[200%] text-secondary-blue">
-                  Share
+                  Experience
                 </span>
                 <span className="absolute translate-y-[300%] text-secondary-red">
-                  Create
+                  Ski
                 </span>
               </div>
             </div>
           </div>
           <div className="hidden sm:block">
-            <div className={primaryHeaderStyles}>Experiences With</div>
-            <div className={primaryHeaderStyles}>Your Community.</div>
+            <div className={primaryHeaderStyles}>Alto, New Mexico,</div>
+            <div className={primaryHeaderStyles}>Casa Patron.</div>
           </div>
           <div className="sm:hidden">
-            <div className={primaryHeaderStyles}>Experiences</div>
-            <div className={primaryHeaderStyles}>With Your</div>
-            <div className={primaryHeaderStyles}>Community.</div>
+            <div className={primaryHeaderStyles}>Alto, NM</div>
+            <div className={primaryHeaderStyles}>Casa Patron</div>
+            {/* <div className={primaryHeaderStyles}>Patron.</div> */}
           </div>
         </a>
-        <p className="block sm:pt-0 font-light sm:text-lg md:text-xl lg:text-2xl text-white">
-          Available in the US
+        <p className="block sm:pt-0 font-light sm:text-lg md:text-xl lg:text-2xl text-white max-w-[250px] lg:max-w-xl">
+          Short-term vacation rental, located near Ski Apache.
         </p>
       </div>
     </>
@@ -280,24 +285,74 @@ export const query = graphql`
         siteUrl
       }
     }
-    communityImg: file(name: { eq: "living-room-1" }) {
+    casaPatronBirdImg: file(name: { eq: "cp-mural" }) {
       childImageSharp {
-        gatsbyImageData(width: 889)
+        gatsbyImageData
       }
     }
-    exploreImg: file(name: { eq: "living-room-1" }) {
+    terraceSummerImg: file(name: { eq: "cp-terrace-summer" }) {
       childImageSharp {
-        gatsbyImageData(width: 889)
+        gatsbyImageData
       }
     }
-    inspireImg: file(name: { eq: "living-room-1" }) {
+    greatRoomImg: file(name: { eq: "cp-great-room" }) {
       childImageSharp {
-        gatsbyImageData(width: 889)
+        gatsbyImageData
       }
     }
-    phoneDemoImg: file(name: { eq: "living-room-1" }) {
+    winterTerraceImg: file(name: { eq: "cp-terrace-winter" }) {
       childImageSharp {
-        gatsbyImageData(quality: 100, width: 445)
+        gatsbyImageData
+      }
+    }
+    blueBuildingImg: file(name: { eq: "cp-blue-building" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    forestBeautyImg: file(name: { eq: "cp-forest-beauty" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    hotTubeImg: file(name: { eq: "cp-hot-tube" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    kitchenOneImg: file(name: { eq: "cp-kitchen-1" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    kitchenTwoImg: file(name: { eq: "cp-kitchen-2" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    valleyImg: file(name: { eq: "cp-valley" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    gardenMonkImg: file(name: { eq: "cp-garden-monk" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    ladyInRuinsImg: file(name: { eq: "cp-lady-in-ruins" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    terraceSummerGamesImg: file(name: { eq: "cp-terrace-summer-games" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    bienvenidosImg: file(name: { eq: "cp-bienvenidos" }) {
+      childImageSharp {
+        gatsbyImageData
       }
     }
     homeHeroImg: file(name: { eq: "living-room-1" }) {
@@ -305,7 +360,7 @@ export const query = graphql`
         gatsbyImageData
       }
     }
-    homeMobileHeroImg: file(name: { eq: "living-room-1" }) {
+    mobileHeroImg: file(name: { eq: "cp-terrace-beauty-winter" }) {
       childImageSharp {
         gatsbyImageData
       }

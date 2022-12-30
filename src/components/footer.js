@@ -1,5 +1,6 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const footerNavigation = [
   {
@@ -14,6 +15,18 @@ const footerNavigation = [
 function Footer() {
   const linkStyles = "hover:underline"
 
+  const query = graphql`
+    query NavBarQuery {
+      logo: file(name: { eq: "casa-patron-logo" }) {
+        childImageSharp {
+          gatsbyImageData
+        }
+      }
+    }
+  `
+
+  const { logo } = useStaticQuery(query)
+
   return (
     <>
       <footer
@@ -23,7 +36,9 @@ function Footer() {
         <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:py-6 lg:px-8">
           <div className="grid gap-10 lg:gap-2 lg:flex justify-center items-center lg:justify-between w-full grid-flow-row  ">
             <div className="flex justify-center relative right-2 sm:right-0">
-              <Link to="/">Logo Here</Link>
+              <Link to="/" className="w-[80px]">
+                <GatsbyImage image={getImage(logo)} />
+              </Link>
             </div>
             <div className="grid w-full items-center justify-center grid-cols-3 md:grid-cols-none md:max-w-lg lg:max-w-3xl md:auto-cols-auto md:grid-flow-col gap-6">
               {footerNavigation.map((item, index) => {

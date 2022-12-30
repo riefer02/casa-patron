@@ -84,7 +84,7 @@ export default function Header({ heroContent, heroImg, mobileHeroImg }) {
       {/* Hero*/}
       {heroContent && (
         <div className="relative z-30 max-w-7xl mx-auto h-full px-4 sm:px-6 xl:px-0 sm:pt-0">
-          <div className="sm:absolute mx-auto top-[35%] w-full sm:top-[18%] md:top-[18%] lg:top-[25%] xl:top-[25%] pt-[90%] sm:pt-0 py-10 sm:py-0 text-left">
+          <div className="sm:absolute mx-auto top-[35%] sm:top-[25%] w-full pt-[90%] sm:pt-0 py-10 sm:py-0 text-left">
             <div className="mx-auto">{heroContent()}</div>
           </div>
         </div>

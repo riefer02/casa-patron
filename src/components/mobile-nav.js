@@ -26,7 +26,7 @@ export default function MobileMenu({ toggle, navLinks, setMobileNavActive }) {
             <Link
               key={index}
               to={navLink.url}
-              className="mb-3 px-3 py-5 text-2xl text-white shadow-lg rounded-[72.5px] min-w-[100%] text-center bg-gradient-to-tr to-default from-mi-purple bg-opacity-20"
+              className="mb-3 px-3 py-5 text-2xl text-white shadow-lg bg-gray-100 rounded-[72.5px] min-w-[100%] text-center bg-gradient-to-tr to-default from-mi-purple bg-opacity-20"
               aria-current="page"
               onClick={() => onClickHandler(navLink.url)}
             >
