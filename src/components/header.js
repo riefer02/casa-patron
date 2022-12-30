@@ -3,6 +3,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import NavBar from "./navbar"
 import { useLocation } from "@reach/router"
 import { isHeroPage } from "../utils/helpers.js"
+import heroVideo from "../images/cp-hero-video.mp4"
 
 export default function Header({ heroContent, heroImg, mobileHeroImg }) {
   const { pathname } = useLocation()
@@ -26,10 +27,7 @@ export default function Header({ heroContent, heroImg, mobileHeroImg }) {
               id="hero-video"
               className="hidden sm:block relative z-10 w-full"
             >
-              <source
-                src="https://storage.googleapis.com/fetchai-web-images/Fetch-AI-Mobile-App-Site/landing-page-v3.mp4"
-                type="video/mp4"
-              />
+              <source src={heroVideo} type="video/mp4" />
             </video>
           </div>
           {/* Mobile Hero Image */}
@@ -37,7 +35,7 @@ export default function Header({ heroContent, heroImg, mobileHeroImg }) {
             <GatsbyImage
               image={getImage(mobileHeroImg)}
               style={{ height: "100%", objectFit: "cover" }}
-              alt=""
+              alt="Casa Patron mural, a black bird with a heart flower."
             />
           </div>
         </>
@@ -66,8 +64,7 @@ export default function Header({ heroContent, heroImg, mobileHeroImg }) {
       {isHeroPage(pathname) && (
         <>
           <div className="hidden sm:block absolute z-20 h-full w-full">
-            <div className="bg-header-gradient w-full h-full relative"></div>
-            <div className="bg-header-gradient w-1/6 h-full absolute top-[-50%] right-0 rotate-[120deg]"></div>
+            <div className="bg-gray-800 bg-opacity-20 w-full h-full relative"></div>
           </div>
           {/* Mobile Background Gradient */}
           <div className="absolute sm:hidden z-20 top-0 bg-black opacity-50 h-full w-full"></div>
