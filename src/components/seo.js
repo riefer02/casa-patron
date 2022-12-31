@@ -2,7 +2,6 @@ import React from "react"
 import { useLocation } from "@reach/router"
 import { useStaticQuery, graphql } from "gatsby"
 import { getImage } from "gatsby-plugin-image"
-import logo from "../images/gatsby-icon.png"
 
 function SEO({
   description,
@@ -35,8 +34,7 @@ function SEO({
     description: description || defaultDescription,
     image:
       `${siteUrl}${seoImage.images.fallback.src}` ||
-      seoImage.images.fallback.src ||
-      logo,
+      seoImage.images.fallback.src,
     url: `${siteUrl}${pathname}`,
   }
 
@@ -87,7 +85,7 @@ const query = graphql`
         author
       }
     }
-    ogImage: file(name: { eq: "example" }) {
+    ogImage: file(name: { eq: "cp-og-image" }) {
       childImageSharp {
         gatsbyImageData
       }
