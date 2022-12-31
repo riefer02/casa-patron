@@ -112,7 +112,7 @@ export default function IndexPage({
       mobileHeroImg={mobileHeroImg}
       heroImg={homeHeroImg}
     >
-      <div id="what-is-flockx-section"></div>
+      <div id="what-is-casa-patron"></div>
       {panels.map(content => (
         <>
           <Spacer />

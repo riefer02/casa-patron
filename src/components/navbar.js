@@ -34,7 +34,6 @@ export default function NavBar({ mobileNavActive, setMobileNavActive }) {
 
   const { logo } = useStaticQuery(query)
 
-  console.log(logo)
   return (
     <nav
       className={`absolute top-0 w-full z-40 ${
@@ -52,7 +51,13 @@ export default function NavBar({ mobileNavActive, setMobileNavActive }) {
           <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-between">
             <div className="flex-shrink-0 flex items-center mr-auto">
               <Link to="/" className="w-[80px]">
-                <GatsbyImage image={getImage(logo)} />
+                <GatsbyImage
+                  image={getImage(logo)}
+                  imgStyle={{
+                    filter:
+                      "brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(190deg) brightness(103%) contrast(103%)",
+                  }}
+                />
               </Link>
             </div>
             <div className="hidden sm:flex items-center sm:ml-6">

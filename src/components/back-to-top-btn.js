@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-// import { ArrowUpIcon } from "@heroicons/react/solid"
 import { isBrowser } from "../utils/helpers"
+import { FaArrowUp } from "@react-icons/all-files/fa/FaArrowUp"
 
 export default function BackToTopButton() {
   const [visible, setVisible] = useState(false)
@@ -30,12 +30,11 @@ export default function BackToTopButton() {
 
   return (
     <button
-      className="h-10 w-10 md:h-12 md:w-12 shadow-md bg-default fixed bottom-14 md:bottom-20 left-2 md:left-6 lg:left-10  text-white flex rounded-full items-center justify-center transition z-50"
+      className="h-10 w-10 md:h-12 md:w-12 shadow-md bg-default fixed bottom-14 md:bottom-20 left-2 md:left-6 lg:left-10 flex rounded-full items-center justify-center transition z-50"
       onClick={scrollToTop}
       style={visibleStyles}
     >
-      {/* <ArrowUpIcon className="text-white h-7 w-7 md:h-8 md:w-8" /> */}
-      Arrow Here
+      <FaArrowUp className="text-3xl" />
     </button>
   )
 }

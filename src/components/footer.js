@@ -68,7 +68,7 @@ function Footer() {
               })}
             </div>
             <div>
-              <a href="https://www.instagram.com/casapatronalto/?hl=en">
+              <a href="https://www.instagram.com/casapatronalto/?hl=en" target="_blank">
                 <FaInstagram className="text-3xl" />
               </a>
             </div>
