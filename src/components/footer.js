@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { FaInstagram } from "@react-icons/all-files/fa/FaInstagram"
 
 const footerNavigation = [
   {
@@ -8,7 +9,14 @@ const footerNavigation = [
     url: "mailto:valerie@casapatronalto.com",
     externalLink: true,
     placeholder: false,
-    id: "contact-us-button",
+    id: "contact-us-link",
+  },
+  {
+    label: "Evolve Rental",
+    url: "https://evolve.com/vacation-rentals/us/nm/alto/449305",
+    externalLink: true,
+    placeholder: false,
+    id: "evolve-link",
   },
 ]
 
@@ -59,7 +67,11 @@ function Footer() {
                 }
               })}
             </div>
-            <div>Socials Go Here</div>
+            <div>
+              <a href="https://www.instagram.com/casapatronalto/?hl=en">
+                <FaInstagram className="text-3xl" />
+              </a>
+            </div>
           </div>
         </div>
       </footer>
