@@ -208,6 +208,7 @@ export const Head = ({
       postalCode: "88312",
       addressCountry: "US",
     },
+    priceRange: "$240-$900 per night",
     geo: {
       "@type": "GeoCoordinates",
       latitude: 33.41047791700064,
