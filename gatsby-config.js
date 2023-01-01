@@ -7,13 +7,26 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+require("dotenv").config({
+  path: ".env",
+})
+
+const {
+  NODE_ENV,
+  URL: NETLIFY_SITE_URL = "https://casapatronalto.com/",
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  CONTEXT: NETLIFY_ENV = NODE_ENV,
+} = process.env
+const isNetlifyProduction = NETLIFY_ENV === "production"
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
+
 module.exports = {
   siteMetadata: {
     title: `Casa Patron: Short Term Vacation Rental Home in Alto, NM Near Ruidoso & Ski Apache`,
     description: `Escape to the stunning mountains of Alto, NM and stay at Casa Patron, a beautiful short term vacation rental home located near Ruidoso. This family-friendly home is perfect for large parties and is conveniently located next to Ski Apache. Experience the beauty of nature and make unforgettable memories at Casa Patron.`,
     titleTemplate: "Casa Patron",
     author: `@riefer02`,
-    siteUrl: `https://casapatronalto.com/`,
+    siteUrl,
   },
   plugins: [
     `gatsby-plugin-image`,
