@@ -37,10 +37,10 @@ export default function NavBar({ mobileNavActive, setMobileNavActive }) {
   return (
     <nav
       className={`absolute top-0 w-full z-40 ${
-        isHeroPage(pathname) ? "bg-transparent" : "bg-gray-100"
+        isHeroPage(pathname) ? "bg-transparent" : "bg-black"
       } ${mobileNavActive ? "bg-gray-600" : ""}`}
     >
-      <div className="max-w-7xl md:max-w-5xl lg:max-w-7xl mx-auto px-4 sm:px-6 xl:px-0">
+      <div className="max-w-7xl md:max-w-5xl lg:max-w-7xl mx-auto px-4 sm:px-6">
         <div className="relative flex items-center justify-between h-16">
           <div className="sm:hidden absolute inset-y-0 right-0 flex items-center ">
             <Hamburger

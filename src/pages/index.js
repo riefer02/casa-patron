@@ -197,8 +197,8 @@ export const Head = ({
     name: "Casa Patron",
     description:
       "Escape to the stunning mountains of Alto, NM and stay at Casa Patron, a beautiful short term vacation rental home located near Ruidoso. This family-friendly home is perfect for large parties and is conveniently located next to Ski Apache. Experience the beauty of nature and make unforgettable memories at Casa Patron.",
-    image: "https://casapatronalto/cp-mural.jpg",
-    telephone: "+1-505-555-1212",
+    image: "https://casapatronalto/static/cp-mural.jpg",
+    telephone: "+1-817-223-0272",
     email: "valerie@casapatronalto.com",
     address: {
       "@type": "PostalAddress",
