@@ -68,7 +68,7 @@ export default function IndexPage({
       },
       headline: {
         spanText: "Relax",
-        spanColor: "#FF986C",
+        spanColor: "#7593FF",
         headerText: "and Unwind",
       },
       paragraph: {
