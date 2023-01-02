@@ -139,9 +139,10 @@ function HomePageHeroContent() {
     <>
       <div className="-mt-[30%] sm:-mt-0">
         <h1 className="hidden">
-          Let's Create Videos to Inspire Your Favorites Communities
+          Casa Patron: Short Term Vacation Rental Home in Alto, NM Near Ruidoso
+          & Ski Apache
         </h1>
-        <a href="#what-is-flockx-section" className="mb-3 sm:mb-4 block">
+        <a href="#what-is-casa-patron" className="mb-3 sm:mb-4 block">
           <div className={primaryHeaderStyles}>
             Let's
             <div className="inline-flex pl-2 sm:pl-3 lg:pl-4 overflow-hidden w-[70%] mx-auto">
@@ -170,8 +171,8 @@ function HomePageHeroContent() {
             {/* <div className={primaryHeaderStyles}>Patron.</div> */}
           </div>
         </a>
-        <p className="block sm:pt-0 font-light sm:text-lg md:text-xl lg:text-2xl text-white max-w-[250px] lg:max-w-xl">
-          Short-term vacation rental, located near Ski Apache.
+        <p className="block sm:pt-0 font-light sm:text-lg md:text-xl lg:text-2xl text-white max-w-[250px] lg:max-w-sm">
+          Short-term vacation rental, located near Ruidoso & Ski Apache.
         </p>
       </div>
     </>
