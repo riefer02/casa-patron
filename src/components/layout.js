@@ -19,7 +19,7 @@ export default function Layout({
           heroImg={heroImg}
           mobileHeroImg={mobileHeroImg}
         />
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 xl:px-0 z-20 relative">
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 xl:px-0 z-20 relative min-h-[85vh]">
           {children}
         </main>
         <Footer />

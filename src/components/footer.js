@@ -48,7 +48,7 @@ function Footer() {
                 <GatsbyImage image={getImage(logo)} />
               </Link>
             </div>
-            <div className="grid w-full items-center justify-center grid-cols-2 md:grid-cols-none md:max-w-lg lg:max-w-3xl md:auto-cols-auto md:grid-flow-col gap-6">
+            <div className="grid w-full items-center justify-center grid-cols-2 md:grid-cols-none md:max-w-lg lg:max-w-3xl md:auto-cols-auto md:grid-flow-col gap-6 lg:gap-12">
               {footerNavigation.map((item, index) => {
                 if (item.placeholder)
                   return <div key={index} className="block md:hidden"></div>
@@ -68,7 +68,10 @@ function Footer() {
               })}
             </div>
             <div class="flex items-center justify-center md:block">
-              <a href="https://www.instagram.com/casapatronalto/?hl=en" target="_blank">
+              <a
+                href="https://www.instagram.com/casapatronalto/?hl=en"
+                target="_blank"
+              >
                 <FaInstagram className="text-3xl" />
               </a>
             </div>
