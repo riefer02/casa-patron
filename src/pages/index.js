@@ -38,7 +38,7 @@ export default function IndexPage({
       },
       headline: {
         spanText: "Experience",
-        spanColor: "#7593FF",
+        spanColor: "#1C68CB",
         headerText: "New Mexico",
       },
       paragraph: {
@@ -53,7 +53,8 @@ export default function IndexPage({
       },
       headline: {
         spanText: "Magic",
-        spanColor: "#FF986C",
+        spanColor: "#FF715B",
+
         headerText: "of the Mountains",
       },
       paragraph: {
@@ -68,7 +69,7 @@ export default function IndexPage({
       },
       headline: {
         spanText: "Relax",
-        spanColor: "#7593FF",
+        spanColor: "#1C68CB",
         headerText: "and Unwind",
       },
       paragraph: {
@@ -83,7 +84,7 @@ export default function IndexPage({
       },
       headline: {
         spanText: "Create",
-        spanColor: "#FF7575",
+        spanColor: "#28D679",
         headerText: "Memories",
       },
       paragraph: {
@@ -133,7 +134,7 @@ export default function IndexPage({
 
 function HomePageHeroContent() {
   const primaryHeaderStyles =
-    "text-5xl md:text-6xl lg:text-6xl xl:text-[72px] xl:leading-[77px] text-left font-light mb-2 xl:mx-0 text-white"
+    "text-shadow text-5xl md:text-6xl lg:text-6xl xl:text-[72px] xl:leading-[77px] text-left font-light mb-2 xl:mx-0 text-white"
 
   return (
     <>
@@ -147,7 +148,7 @@ function HomePageHeroContent() {
             Let's
             <div className="inline-flex pl-2 sm:pl-3 lg:pl-4 overflow-hidden w-[70%] mx-auto">
               <div className="flex-col h-full relative inline-flex animate-spin-words">
-                <span className="opacity-0 ">Ski.</span>
+                <span className="opacity-0">Ski.</span>
                 <span className="absolute text-secondary-red">Ski</span>
                 <span className="absolute translate-y-[100%] overflow-hidden text-secondary-green">
                   Explore
@@ -171,7 +172,7 @@ function HomePageHeroContent() {
             {/* <div className={primaryHeaderStyles}>Patron.</div> */}
           </div>
         </a>
-        <p className="block sm:pt-0 font-light sm:text-lg md:text-xl lg:text-2xl text-white max-w-[250px] lg:max-w-sm">
+        <p className="text-shadow block sm:pt-0 font-light sm:text-lg md:text-xl lg:text-2xl text-white max-w-[250px] lg:max-w-sm">
           Short-term vacation rental, located near Ruidoso & Ski Apache.
         </p>
       </div>

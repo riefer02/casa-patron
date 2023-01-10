@@ -6,6 +6,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: "#FEE43A",
+        secondary: "#1C68CB",
+        tertiary: "#FF715B",
+        ["grey-neutral"]: "#273240",
+        success: "28D679",
+      },
       keyframes: {
         ["spin-words"]: {
           "0%, 25%": {

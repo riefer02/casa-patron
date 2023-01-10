@@ -30,11 +30,11 @@ export default function BackToTopButton() {
 
   return (
     <button
-      className="h-10 w-10 md:h-12 md:w-12 shadow-md bg-default fixed bottom-14 md:bottom-20 left-2 md:left-6 lg:left-10 flex rounded-full items-center justify-center transition z-50"
+      className="h-10 w-10 shadow-md bg-secondary text-primary border-primary fixed bottom-14 md:bottom-20 left-2 md:left-6 lg:left-10 flex rounded-full items-center justify-center transition z-50"
       onClick={scrollToTop}
       style={visibleStyles}
     >
-      <FaArrowUp className="text-3xl" />
+      <FaArrowUp className="text-2xl" />
     </button>
   )
 }

@@ -72,7 +72,7 @@ function Footer() {
                 href="https://www.instagram.com/casapatronalto/?hl=en"
                 target="_blank"
               >
-                <FaInstagram className="text-3xl" />
+                <FaInstagram className="text-3xl text-grey-neutral" />
               </a>
             </div>
           </div>

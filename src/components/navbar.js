@@ -20,7 +20,7 @@ const navLinks = [
 export default function NavBar({ mobileNavActive, setMobileNavActive }) {
   const { pathname } = useLocation()
   const navLinkStyles =
-    "px-3 py-2 rounded-md font-medium underline-offset-1 hover:underline text-white"
+    "text-shadow px-3 py-2 rounded-md font-medium underline-offset-1 hover:underline text-white"
 
   const handleMobileMenuOnClick = () => {
     setMobileNavActive(!mobileNavActive)
@@ -57,6 +57,7 @@ export default function NavBar({ mobileNavActive, setMobileNavActive }) {
               <Link to="/" className="w-[80px]">
                 <GatsbyImage
                   image={getImage(logo)}
+                  className="logo-shadow"
                   imgStyle={{
                     filter:
                       "brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(190deg) brightness(103%) contrast(103%)",

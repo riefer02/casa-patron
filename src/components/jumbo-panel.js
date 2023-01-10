@@ -65,13 +65,13 @@ export default function JumboPanel({ imageSide = "right", content }) {
   let jumboMediaContent = () => {
     const mediaContentWrapperStyles =
       imageSide === "right"
-        ? `relative lg:col-span-6 justify-self-end mx-auto lg:mx-0`
-        : `relative order-2 lg:order-1 lg:mb-0 lg:col-span-6 mx-auto lg:mx-0 max-w-2xl mx-auto`
+        ? `shadow-md rounded-3xl lg:col-span-6 justify-self-end mx-auto lg:mx-0`
+        : `shadow-md rounded-3xl relative order-2 lg:order-1 lg:mb-0 lg:col-span-6 mx-auto lg:mx-0 max-w-2xl mx-auto`
 
     const shadowImageWrapperStyles =
       imageSide === "right"
-        ? `hidden lg:block absolute -top-8 -right-8 opacity-50 overflow-hidden rounded-3xl w-full`
-        : `hidden lg:block absolute -top-8 -left-8 opacity-50 overflow-hidden rounded-3xl w-full`
+        ? `hidden lg:block absolute -top-6 -right-6 opacity-50 overflow-hidden rounded-3xl w-full`
+        : `hidden lg:block absolute -top-6 -left-6 opacity-50 overflow-hidden rounded-3xl w-full`
 
     return (
       <div className={mediaContentWrapperStyles}>
