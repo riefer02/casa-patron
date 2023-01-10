@@ -12,7 +12,7 @@ module.exports = {
         secondary: "#1C68CB",
         tertiary: "#FF715B",
         ["grey-neutral"]: "#273240",
-        success: "28D679",
+        success: "#28D679",
       },
       keyframes: {
         ["spin-words"]: {

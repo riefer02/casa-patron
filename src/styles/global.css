@@ -6,6 +6,12 @@ body {
   scroll-behavior: smooth;
 }
 
+@layer base {
+  body {
+    @apply text-grey-neutral;
+  }
+}
+
 @layer utilities {
   .text-shadow {
     text-shadow: 2px 2px 4px rgba(39, 50, 64, 0.3);

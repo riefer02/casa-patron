@@ -41,10 +41,10 @@ function Footer() {
         className="bg-transparent relative z-20"
         aria-labelledby="footer-heading"
       >
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:py-6 lg:px-8">
+        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:py-6">
           <div className="grid gap-10 lg:gap-2 lg:flex justify-center items-center lg:justify-between w-full grid-flow-row  ">
             <div className="flex justify-center relative right-2 sm:right-0">
-              <Link to="/" className="w-[80px]">
+              <Link to="/" className="w-[64px]">
                 <GatsbyImage image={getImage(logo)} alt="Casa Patron bird logo" />
               </Link>
             </div>

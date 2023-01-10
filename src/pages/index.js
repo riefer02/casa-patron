@@ -49,7 +49,7 @@ export default function IndexPage({
     {
       image: {
         imageSrc: terraceSummerImg,
-        imageAlt: "People watching the sunset in a canyon.",
+        imageAlt: "A view of the valley from the back patio.",
       },
       headline: {
         spanText: "Magic",
@@ -65,7 +65,8 @@ export default function IndexPage({
     {
       image: {
         imageSrc: greatRoomImg,
-        imageAlt: "People watching the sunset in a canyon.",
+        imageAlt:
+          "A scene of the great room with furniture, pillows, games, and a tv.",
       },
       headline: {
         spanText: "Relax",
@@ -80,7 +81,7 @@ export default function IndexPage({
     {
       image: {
         imageSrc: winterTerraceImg,
-        imageAlt: "A digital nomad at a concert taking photos.",
+        imageAlt: "The valley covered in snow on a winter day.",
       },
       headline: {
         spanText: "Create",
@@ -118,11 +119,10 @@ export default function IndexPage({
         <>
           <Spacer />
           <Spacer className="block sm:hidden" />
-          <JumboPanel content={content} imageSide="left" />
+          <JumboPanel content={content} />
         </>
       ))}
       <Spacer className="hidden sm:block md:hidden" />
-      {/* Callout here */}
       <Spacer />
       <Spacer className="block sm:hidden" />
       <ImageGallery images={imagesGallery} />
@@ -148,15 +148,17 @@ function HomePageHeroContent() {
             Let's
             <div className="inline-flex pl-2 sm:pl-3 lg:pl-4 overflow-hidden w-[70%] mx-auto">
               <div className="flex-col h-full relative inline-flex animate-spin-words">
-                <span className="opacity-0">Ski.</span>
-                <span className="absolute text-secondary-red">Ski</span>
-                <span className="absolute translate-y-[100%] overflow-hidden text-secondary-green">
+                <span className="opacity-0 text-primary">Ski.</span>
+                <span className="absolute text-secondary-red text-primary">
+                  Ski
+                </span>
+                <span className="absolute translate-y-[100%] overflow-hidden text-secondary-green text-success">
                   Explore
                 </span>
-                <span className="absolute translate-y-[200%] text-secondary-blue">
+                <span className="absolute translate-y-[200%] text-secondary-blue text-tertiary">
                   Experience
                 </span>
-                <span className="absolute translate-y-[300%] text-secondary-red">
+                <span className="absolute translate-y-[300%] text-secondary-red text-primary">
                   Ski
                 </span>
               </div>
