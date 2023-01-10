@@ -9,6 +9,7 @@ export default function ImageGallery({ images }) {
           <GatsbyImage
             image={getImage(image)}
             imgStyle={{ borderRadius: "24px" }}
+            alt=""
           />
         </div>
       ))}

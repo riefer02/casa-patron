@@ -45,7 +45,7 @@ function Footer() {
           <div className="grid gap-10 lg:gap-2 lg:flex justify-center items-center lg:justify-between w-full grid-flow-row  ">
             <div className="flex justify-center relative right-2 sm:right-0">
               <Link to="/" className="w-[80px]">
-                <GatsbyImage image={getImage(logo)} />
+                <GatsbyImage image={getImage(logo)} alt="Casa Patron bird logo" />
               </Link>
             </div>
             <div className="grid w-full items-center justify-center grid-cols-2 md:grid-cols-none md:max-w-lg lg:max-w-3xl md:auto-cols-auto md:grid-flow-col gap-6 lg:gap-12">
@@ -67,7 +67,7 @@ function Footer() {
                 }
               })}
             </div>
-            <div class="flex items-center justify-center md:block">
+            <div className="flex items-center justify-center md:block">
               <a
                 href="https://www.instagram.com/casapatronalto/?hl=en"
                 target="_blank"

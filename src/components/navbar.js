@@ -62,6 +62,7 @@ export default function NavBar({ mobileNavActive, setMobileNavActive }) {
                     filter:
                       "brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(190deg) brightness(103%) contrast(103%)",
                   }}
+                  alt=""
                 />
               </Link>
             </div>
