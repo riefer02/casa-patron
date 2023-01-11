@@ -38,7 +38,7 @@ export default function IndexPage({
       },
       headline: {
         spanText: "Experience",
-        spanColor: "#7593FF",
+        spanColor: "#1C68CB",
         headerText: "New Mexico",
       },
       paragraph: {
@@ -49,11 +49,12 @@ export default function IndexPage({
     {
       image: {
         imageSrc: terraceSummerImg,
-        imageAlt: "People watching the sunset in a canyon.",
+        imageAlt: "A view of the valley from the back patio.",
       },
       headline: {
         spanText: "Magic",
-        spanColor: "#FF986C",
+        spanColor: "#FF715B",
+
         headerText: "of the Mountains",
       },
       paragraph: {
@@ -64,11 +65,12 @@ export default function IndexPage({
     {
       image: {
         imageSrc: greatRoomImg,
-        imageAlt: "People watching the sunset in a canyon.",
+        imageAlt:
+          "A scene of the great room with furniture, pillows, games, and a tv.",
       },
       headline: {
         spanText: "Relax",
-        spanColor: "#7593FF",
+        spanColor: "#1C68CB",
         headerText: "and Unwind",
       },
       paragraph: {
@@ -79,11 +81,11 @@ export default function IndexPage({
     {
       image: {
         imageSrc: winterTerraceImg,
-        imageAlt: "A digital nomad at a concert taking photos.",
+        imageAlt: "The valley covered in snow on a winter day.",
       },
       headline: {
         spanText: "Create",
-        spanColor: "#FF7575",
+        spanColor: "#28D679",
         headerText: "Memories",
       },
       paragraph: {
@@ -117,11 +119,10 @@ export default function IndexPage({
         <>
           <Spacer />
           <Spacer className="block sm:hidden" />
-          <JumboPanel content={content} imageSide="left" />
+          <JumboPanel content={content} />
         </>
       ))}
       <Spacer className="hidden sm:block md:hidden" />
-      {/* Callout here */}
       <Spacer />
       <Spacer className="block sm:hidden" />
       <ImageGallery images={imagesGallery} />
@@ -133,7 +134,7 @@ export default function IndexPage({
 
 function HomePageHeroContent() {
   const primaryHeaderStyles =
-    "text-5xl md:text-6xl lg:text-6xl xl:text-[72px] xl:leading-[77px] text-left font-light mb-2 xl:mx-0 text-white"
+    "text-shadow text-5xl md:text-6xl lg:text-6xl xl:text-[72px] xl:leading-[77px] text-left font-light mb-2 xl:mx-0 text-white"
 
   return (
     <>
@@ -147,15 +148,17 @@ function HomePageHeroContent() {
             Let's
             <div className="inline-flex pl-2 sm:pl-3 lg:pl-4 overflow-hidden w-[70%] mx-auto">
               <div className="flex-col h-full relative inline-flex animate-spin-words">
-                <span className="opacity-0 ">Ski.</span>
-                <span className="absolute text-secondary-red">Ski</span>
-                <span className="absolute translate-y-[100%] overflow-hidden text-secondary-green">
+                <span className="opacity-0 text-primary">Ski.</span>
+                <span className="absolute text-secondary-red text-primary">
+                  Ski
+                </span>
+                <span className="absolute translate-y-[100%] overflow-hidden text-secondary-green text-success">
                   Explore
                 </span>
-                <span className="absolute translate-y-[200%] text-secondary-blue">
+                <span className="absolute translate-y-[200%] text-secondary-blue text-tertiary">
                   Experience
                 </span>
-                <span className="absolute translate-y-[300%] text-secondary-red">
+                <span className="absolute translate-y-[300%] text-secondary-red text-primary">
                   Ski
                 </span>
               </div>
@@ -171,7 +174,7 @@ function HomePageHeroContent() {
             {/* <div className={primaryHeaderStyles}>Patron.</div> */}
           </div>
         </a>
-        <p className="block sm:pt-0 font-light sm:text-lg md:text-xl lg:text-2xl text-white max-w-[250px] lg:max-w-sm">
+        <p className="text-shadow block sm:pt-0 font-light sm:text-lg md:text-xl lg:text-2xl text-white max-w-[250px] lg:max-w-sm">
           Short-term vacation rental, located near Ruidoso & Ski Apache.
         </p>
       </div>

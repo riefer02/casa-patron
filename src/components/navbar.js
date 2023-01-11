@@ -11,12 +11,16 @@ const navLinks = [
     label: "Home",
     url: "/",
   },
+  {
+    label: "Business Retreats",
+    url: "/business-retreats",
+  },
 ]
 
 export default function NavBar({ mobileNavActive, setMobileNavActive }) {
   const { pathname } = useLocation()
   const navLinkStyles =
-    "px-3 py-2 rounded-md font-medium underline-offset-1 hover:underline text-white"
+    "text-shadow px-3 py-2 rounded-md font-medium underline-offset-1 hover:underline text-white"
 
   const handleMobileMenuOnClick = () => {
     setMobileNavActive(!mobileNavActive)
@@ -37,8 +41,8 @@ export default function NavBar({ mobileNavActive, setMobileNavActive }) {
   return (
     <nav
       className={`absolute top-0 w-full z-40 ${
-        isHeroPage(pathname) ? "bg-transparent" : "bg-black"
-      } ${mobileNavActive ? "bg-gray-600" : ""}`}
+        isHeroPage(pathname) ? "bg-transparent" : "bg-grey-neutral"
+      } ${mobileNavActive ? "bg-grey-neutral" : ""}`}
     >
       <div className="max-w-7xl md:max-w-5xl lg:max-w-7xl mx-auto px-4 sm:px-6">
         <div className="relative flex items-center justify-between h-16">
@@ -50,13 +54,15 @@ export default function NavBar({ mobileNavActive, setMobileNavActive }) {
           </div>
           <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-between">
             <div className="flex-shrink-0 flex items-center mr-auto">
-              <Link to="/" className="w-[80px]">
+              <Link to="/" className="w-[64px]">
                 <GatsbyImage
                   image={getImage(logo)}
+                  className="logo-shadow"
                   imgStyle={{
                     filter:
                       "brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(190deg) brightness(103%) contrast(103%)",
                   }}
+                  alt=""
                 />
               </Link>
             </div>

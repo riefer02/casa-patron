@@ -3,5 +3,31 @@
 @tailwind utilities;
 
 body {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  body {
+    @apply text-grey-neutral;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(39, 50, 64, 0.3);
+  }
+  .text-shadow-md {
+    text-shadow: 4px 4px 8px rgba(39, 50, 64, 0.3);
+  }
+  .text-shadow-lg {
+    text-shadow: 15px 15px 30px rgba(39, 50, 64, 0.3);
+  }
+  .text-shadow-none {
+    text-shadow: none;
+  }
+}
+
+.logo-shadow {
+  -webkit-filter: drop-shadow(2px 2px 4px rgba(39, 50, 64, 0.3));
+  filter: drop-shadow(2px 2px 4px rgba(39, 50, 64, 0.3));
 }
