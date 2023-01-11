@@ -41,8 +41,8 @@ export default function NavBar({ mobileNavActive, setMobileNavActive }) {
   return (
     <nav
       className={`absolute top-0 w-full z-40 ${
-        isHeroPage(pathname) ? "bg-transparent" : "bg-black"
-      } ${mobileNavActive ? "bg-gray-600" : ""}`}
+        isHeroPage(pathname) ? "bg-transparent" : "bg-grey-neutral"
+      } ${mobileNavActive ? "bg-grey-neutral" : ""}`}
     >
       <div className="max-w-7xl md:max-w-5xl lg:max-w-7xl mx-auto px-4 sm:px-6">
         <div className="relative flex items-center justify-between h-16">
