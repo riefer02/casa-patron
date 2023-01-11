@@ -12,8 +12,8 @@ const navLinks = [
     url: "/",
   },
   {
-    label: "Business Retreats",
-    url: "/business-retreats",
+    label: "Leadership Retreats",
+    url: "/leadership-retreats",
   },
 ]
 
