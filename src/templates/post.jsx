@@ -40,7 +40,8 @@ export default function PageTemplate({ data, children }) {
         <h1 className="font-bold text-3xl leading-[1.3] lg:leading-[1.5] mb-2">
           {data.mdx.frontmatter.title}
         </h1>
-        <div className="flex items-center justify-between">
+        <hr className="mb-2"></hr>
+        <div className="flex items-center justify-between mb-2">
           <div className="">{data.mdx.frontmatter.author}</div>
           <div>{data.mdx.frontmatter.date}</div>
         </div>

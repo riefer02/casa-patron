@@ -59,7 +59,7 @@ export default function ContactUSPage() {
 
   return (
     <Layout>
-      <div className="py-6 m-4 max-w-lg mx-auto">
+      <div className="py-6 max-w-lg mx-auto">
         <h1 className="font-bold text-3xl leading-[1.3] lg:leading-[1.5] mb-2">
           Contact Us
         </h1>
