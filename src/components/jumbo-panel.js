@@ -82,6 +82,7 @@ export default function JumboPanel({ content }) {
             alt={imageAlt}
             imgClassName="shadow-md"
             className="rounded-3xl"
+            imgStyle={{ borderRadius: "24px", overflow: "hidden" }}
           />
         </div>
       </div>
