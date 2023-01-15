@@ -15,6 +15,10 @@ const navLinks = [
     label: "Leadership Retreats",
     url: "/leadership-retreats",
   },
+  {
+    label: "Contact Us",
+    url: "/contact-us",
+  },
 ]
 
 export default function NavBar({ mobileNavActive, setMobileNavActive }) {

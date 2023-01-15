@@ -36,7 +36,7 @@ export default function PageTemplate({ data, children }) {
 
   return (
     <Layout>
-      <div className="max-w-4xl mx-auto py-6">
+      <div className="max-w-2xl mx-auto py-6">
         <h1 className="font-bold text-3xl leading-[1.3] lg:leading-[1.5] mb-2">
           {data.mdx.frontmatter.title}
         </h1>
