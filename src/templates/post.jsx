@@ -41,7 +41,7 @@ export default function PageTemplate({ data, children }) {
           {data.mdx.frontmatter.title}
         </h1>
         <div className="flex items-center justify-between">
-          <div className="mb-2">{data.mdx.frontmatter.author}</div>
+          <div className="">{data.mdx.frontmatter.author}</div>
           <div>{data.mdx.frontmatter.date}</div>
         </div>
         <hr className="mb-2"></hr>

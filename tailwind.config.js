@@ -4,6 +4,7 @@ module.exports = {
     "./src/pages/**/*.{js,jsx,ts,tsx}",
     "./src/components/**/*.{js,jsx,ts,tsx}",
     "./src/templates/**/*.{js,jsx,ts,tsx}",
+    "./src/utils/mdx-components.js",
   ],
   theme: {
     extend: {
