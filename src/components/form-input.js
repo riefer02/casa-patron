@@ -48,12 +48,10 @@ const Input = ({
         {label}
       </label>
       <input
-        className={`bg-white focus:border-tertiary focus:outline-none border shadow-md border-secondary rounded-lg py-2 px-4 block w-full appearance-none leading-normal ${
+        className={`bg-white focus:border-tertiary focus:outline-none border shadow-md border-grey-neutral rounded-lg py-2 px-4 block w-full appearance-none leading-normal ${
           error && !isFocused ? "!border-tertiary" : ""
-        } ${!error && isFocused ? "!border-primary" : ""}
-        ${
-          isFocused ? "focus:outline focus:outline-1 focus:outline-primary" : ""
-        }`}
+        } ${!error && isFocused ? "!border-secondary" : ""}
+        ${isFocused ? "!border-secondary" : ""}`}
         type={type}
         name={name}
         placeholder={placeholder}
