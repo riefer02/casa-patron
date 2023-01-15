@@ -44,19 +44,23 @@ export default function Header({ heroContent, heroImg, mobileHeroImg }) {
         <>
           {/* Desktop Hero Image */}
           <div className="absolute hidden sm:block z-10 h-full w-full pt-10 sm:pt-0 overflow-hidden">
-            <GatsbyImage
-              image={getImage(heroImg)}
-              style={{ height: "100%", objectFit: "cover" }}
-              alt=""
-            />
+            {heroImg && (
+              <GatsbyImage
+                image={getImage(heroImg)}
+                style={{ height: "100%", objectFit: "cover" }}
+                alt=""
+              />
+            )}
           </div>
           {/* Mobile Hero Image */}
           <div className="block sm:hidden absolute z-10 h-full w-full pt-0 overflow-hidden">
-            <GatsbyImage
-              image={getImage(mobileHeroImg)}
-              style={{ height: "100%", objectFit: "cover" }}
-              alt=""
-            />
+            {mobileHeroImg && (
+              <GatsbyImage
+                image={getImage(mobileHeroImg)}
+                style={{ height: "100%", objectFit: "cover" }}
+                alt=""
+              />
+            )}
           </div>
         </>
       )}

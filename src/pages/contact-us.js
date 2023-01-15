@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 
 export default function ContactUSPage() {
   const [formData, setFormData] = useState({
-    name: "",
+    fullName: "",
     retreatMonth: "",
     retreatDays: "",
     retreatDates: "",
@@ -18,7 +18,7 @@ export default function ContactUSPage() {
   })
 
   const [errors, setErrors] = useState({
-    name: "",
+    fullName: "",
     retreatMonth: "",
     retreatDays: "",
     retreatDates: "",
@@ -39,19 +39,17 @@ export default function ContactUSPage() {
   }
 
   const handleBlur = event => {
-    console.log(event)
-    return
     if (formData[event.target.name] === "") {
-      setErrors({
+      return setErrors({
         ...errors,
-        [event.target.name]: `${event.target.name} cannot be empty`,
-      })
-    } else {
-      setErrors({
-        ...errors,
-        [event.target.name]: "",
+        [event.target.name]: `${event.target.name} is a required field.`,
       })
     }
+
+    return setErrors({
+      ...errors,
+      [event.target.name]: "",
+    })
   }
 
   const handleSubmit = event => {
@@ -62,18 +60,21 @@ export default function ContactUSPage() {
   return (
     <Layout>
       <div className="py-6 m-4 max-w-lg mx-auto">
-        <h1 className="font-bold text-3xl leading-[1.3] lg:leading-[1.5] mb-2">Contact Us</h1>
+        <h1 className="font-bold text-3xl leading-[1.3] lg:leading-[1.5] mb-2">
+          Contact Us
+        </h1>
         <hr className="mb-2"></hr>
         <form onSubmit={handleSubmit} className="m-4 max-w-lg mx-auto">
           <Input
-            name="name"
-            label="Name"
-            placeholder="Enter your name"
+            name="fullName"
+            label="Full Name"
+            placeholder="Enter your full name"
             type="text"
             onBlur={handleBlur}
-            value={formData.name}
+            value={formData.fullName}
             onChange={handleChange}
-            error={errors.name}
+            error={errors.fullName}
+            required={true}
           />
           <Input
             name="retreatMonth"
@@ -84,6 +85,7 @@ export default function ContactUSPage() {
             value={formData.retreatMonth}
             onChange={handleChange}
             error={errors.retreatMonth}
+            required={true}
           />
           <Input
             name="retreatDays"
@@ -94,6 +96,7 @@ export default function ContactUSPage() {
             value={formData.retreatDays}
             onChange={handleChange}
             error={errors.retreatDays}
+            required={true}
           />
           <Input
             name="retreatDates"
@@ -104,6 +107,7 @@ export default function ContactUSPage() {
             value={formData.retreatDates}
             onChange={handleChange}
             error={errors.retreatDates}
+            required={true}
           />
           <Input
             name="facilitator"
@@ -124,6 +128,7 @@ export default function ContactUSPage() {
             value={formData.participants}
             onChange={handleChange}
             error={errors.participants}
+            required={true}
           />
           <Input
             name="organization"
@@ -144,6 +149,7 @@ export default function ContactUSPage() {
             value={formData.email}
             onChange={handleChange}
             error={errors.email}
+            required={true}
           />
           <Input
             name="phone"
@@ -154,10 +160,12 @@ export default function ContactUSPage() {
             value={formData.phone}
             onChange={handleChange}
             error={errors.phone}
+            required={true}
           />
           <Input
             name="contactPref"
             label="Preferred Days and Times to Contact You"
+            placeholder="Enter your preferred contact times"
             type="text"
             onBlur={handleBlur}
             value={formData.contactPref}
@@ -167,6 +175,7 @@ export default function ContactUSPage() {
           <Input
             name="contactAvoid"
             label="Do Not Contact during these days and times"
+            placeholder="Enter your do not contact times"
             type="text"
             onBlur={handleBlur}
             value={formData.contactAvoid}
