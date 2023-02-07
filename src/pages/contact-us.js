@@ -1,35 +1,65 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
+import { navigate } from "gatsby-link"
 import Input from "../components/form-input"
 import Layout from "../components/layout"
+import Seo from "../components/seo"
 
-export default function ContactUSPage() {
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
+}
+
+const isAllFalsy = arr => {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i]) {
+      return false
+    }
+  }
+  return true
+}
+
+function validateForm(formData) {
+  const requiredFields = [
+    "fullName",
+    "email",
+    "startDate",
+    "endDate",
+    "phone",
+    "participants",
+  ]
+  for (const [field, value] of Object.entries(formData)) {
+    if (requiredFields.includes(field) && !value) {
+      return false
+    }
+  }
+  return true
+}
+
+export default function ContactUsPage() {
   const [formData, setFormData] = useState({
     fullName: "",
-    retreatMonth: "",
-    retreatDays: "",
-    retreatDates: "",
+    startDate: "",
+    endDate: "",
     facilitator: "",
     participants: "",
     organization: "",
     email: "",
     phone: "",
-    contactPref: "",
-    contactAvoid: "",
   })
 
   const [errors, setErrors] = useState({
     fullName: "",
-    retreatMonth: "",
-    retreatDays: "",
-    retreatDates: "",
+    startDate: "",
+    endDate: "",
     facilitator: "",
     participants: "",
     organization: "",
     email: "",
     phone: "",
-    contactPref: "",
-    contactAvoid: "",
   })
+
+  const [submitDisabled, setSubmitDisabled] = useState(true)
 
   const handleChange = event => {
     setFormData({
@@ -54,8 +84,25 @@ export default function ContactUSPage() {
 
   const handleSubmit = event => {
     event.preventDefault()
-    console.log({ formData })
+    if (!validateForm(formData)) return
+    const form = event.target
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": form.getAttribute("name"),
+        ...formData,
+      }),
+    })
+      .then(() => navigate(form.getAttribute("action")))
+      .catch(error => alert(error))
   }
+
+  useEffect(() => {
+    validateForm(formData) && isAllFalsy(Object.values(errors))
+      ? setSubmitDisabled(false)
+      : setSubmitDisabled(true)
+  }, [formData, errors])
 
   return (
     <Layout>
@@ -63,8 +110,22 @@ export default function ContactUSPage() {
         <h1 className="font-bold text-3xl leading-[1.3] lg:leading-[1.5] mb-2">
           Contact Us
         </h1>
+        <p className="text-base mb-2">
+          Interested in booking Casa Patron or facilitating a Leadership Retreat
+          there? Answer the questions below and we will get back to as soon as
+          possible.
+        </p>
         <hr className="mb-2"></hr>
-        <form onSubmit={handleSubmit} className="m-4 max-w-lg mx-auto">
+        <form
+          name="contact"
+          onSubmit={handleSubmit}
+          className="m-4 max-w-lg mx-auto"
+          action="/thanks/"
+          method="post"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="contact" />
           <Input
             name="fullName"
             label="Full Name"
@@ -77,72 +138,8 @@ export default function ContactUSPage() {
             required={true}
           />
           <Input
-            name="retreatMonth"
-            label="Do you know when what month or months you are considering having your leadership retreat?"
-            placeholder="Enter the month(s) you are considering"
-            type="text"
-            onBlur={handleBlur}
-            value={formData.retreatMonth}
-            onChange={handleChange}
-            error={errors.retreatMonth}
-            required={true}
-          />
-          <Input
-            name="retreatDays"
-            label="Do you know how many days you are considering for your leadership retreat?"
-            placeholder="Enter the number of days you are considering"
-            type="text"
-            onBlur={handleBlur}
-            value={formData.retreatDays}
-            onChange={handleChange}
-            error={errors.retreatDays}
-            required={true}
-          />
-          <Input
-            name="retreatDates"
-            label="If you already have definite days or dates in a particular month, please provide here"
-            placeholder="Enter any definite days or dates"
-            type="text"
-            onBlur={handleBlur}
-            value={formData.retreatDates}
-            onChange={handleChange}
-            error={errors.retreatDates}
-            required={true}
-          />
-          <Input
-            name="facilitator"
-            label="Are you planning on self-facilitating or using an external facilitator with whom you have already decided to use?"
-            placeholder="Enter your choice"
-            type="text"
-            onBlur={handleBlur}
-            value={formData.facilitator}
-            onChange={handleChange}
-            error={errors.facilitator}
-          />
-          <Input
-            name="participants"
-            label="Do you know how many individuals will participate in your leadership retreat?"
-            placeholder="Enter the number of participants"
-            type="text"
-            onBlur={handleBlur}
-            value={formData.participants}
-            onChange={handleChange}
-            error={errors.participants}
-            required={true}
-          />
-          <Input
-            name="organization"
-            label="Name of Your Organization"
-            placeholder="Enter your organization's name"
-            type="text"
-            onBlur={handleBlur}
-            value={formData.organization}
-            onChange={handleChange}
-            error={errors.organization}
-          />
-          <Input
             name="email"
-            label="Your Preferred Email to reach you"
+            label="Email"
             placeholder="Enter your email address"
             type="email"
             onBlur={handleBlur}
@@ -152,8 +149,30 @@ export default function ContactUSPage() {
             required={true}
           />
           <Input
+            name="startDate"
+            label="Start Date"
+            placeholder="Enter any definite days or dates"
+            type="date"
+            onBlur={handleBlur}
+            value={formData.startDate}
+            onChange={handleChange}
+            error={errors.startDate}
+            required={true}
+          />
+          <Input
+            name="endDate"
+            label="End Date"
+            placeholder="Enter any definite days or dates"
+            type="date"
+            onBlur={handleBlur}
+            value={formData.endDate}
+            onChange={handleChange}
+            error={errors.endDate}
+            required={true}
+          />
+          <Input
             name="phone"
-            label="Your Primary Phone Number to reach you"
+            label="Phone Number"
             placeholder="Enter your phone number"
             type="tel"
             onBlur={handleBlur}
@@ -163,30 +182,66 @@ export default function ContactUSPage() {
             required={true}
           />
           <Input
-            name="contactPref"
-            label="Preferred Days and Times to Contact You"
-            placeholder="Enter your preferred contact times"
+            name="organization"
+            label="Organization Name"
+            placeholder="Enter your organization's name"
             type="text"
             onBlur={handleBlur}
-            value={formData.contactPref}
+            value={formData.organization}
             onChange={handleChange}
-            error={errors.contactPref}
+            error={errors.organization}
           />
           <Input
-            name="contactAvoid"
-            label="Do Not Contact during these days and times"
-            placeholder="Enter your do not contact times"
+            name="participants"
+            label="How many people will be attending?"
+            placeholder="Enter the number of participants"
             type="text"
             onBlur={handleBlur}
-            value={formData.contactAvoid}
+            value={formData.participants}
             onChange={handleChange}
-            error={errors.contactAvoid}
+            error={errors.participants}
+            required={true}
           />
-          <button className="bg-secondary text-primary shadow-md p-2 rounded-lg w-full mt-7">
+          <Input
+            name="facilitator"
+            label="Are you self-facilitating or need an external facilitator?"
+            placeholder="Enter your choice"
+            type="text"
+            onBlur={handleBlur}
+            value={formData.facilitator}
+            onChange={handleChange}
+            error={errors.facilitator}
+          />
+          <button
+            type="submit"
+            className={`bg-secondary text-primary shadow-md p-2 rounded-lg w-full mt-7 ${
+              submitDisabled ? "pointer-events-none opacity-50" : ""
+            }`}
+          >
             Submit
           </button>
         </form>
       </div>
     </Layout>
+  )
+}
+
+export const Head = () => {
+  return (
+    <Seo
+      keywords={[
+        "vacation rental",
+        "new mexico",
+        "alto",
+        "ski apache",
+        "ruidoso",
+        "retreat",
+        "casa patron",
+      ]}
+      title="Contact Us"
+      description={
+        "Get in touch with us for a hassle-free and enjoyable short-term vacation rental experience at Casa Patron, Alto, NM near Ski Apache and Ruidoso Downs. Contact us now for any questions or booking inquiries."
+      }
+    />
   )
 }
