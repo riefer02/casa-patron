@@ -36,11 +36,12 @@ export default function PageTemplate({ data, children }) {
 
   return (
     <Layout>
-      <div className="max-w-4xl mx-auto py-6">
+      <div className="max-w-2xl mx-auto py-6">
         <h1 className="font-bold text-3xl leading-[1.3] lg:leading-[1.5] mb-2">
           {data.mdx.frontmatter.title}
         </h1>
-        <div className="flex items-center justify-between">
+        <hr className="mb-2"></hr>
+        <div className="flex items-center justify-between mb-2">
           <div className="">{data.mdx.frontmatter.author}</div>
           <div>{data.mdx.frontmatter.date}</div>
         </div>

@@ -115,12 +115,12 @@ export default function IndexPage({
       heroImg={homeHeroImg}
     >
       <div id="what-is-casa-patron"></div>
-      {panels.map(content => (
-        <>
+      {panels.map((content, index) => (
+        <div key={index}>
           <Spacer />
           <Spacer className="block sm:hidden" />
           <JumboPanel content={content} />
-        </>
+        </div>
       ))}
       <Spacer className="hidden sm:block md:hidden" />
       <Spacer />
