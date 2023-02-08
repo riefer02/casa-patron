@@ -48,7 +48,7 @@ export default function Header({ heroContent, heroImg, mobileHeroImg }) {
               <GatsbyImage
                 image={getImage(heroImg)}
                 style={{ height: "100%", objectFit: "cover" }}
-                alt=""
+                alt="Casa Patron mural, a black bird with a heart flower."
               />
             )}
           </div>

@@ -37,10 +37,13 @@ function validateForm(formData) {
 }
 
 export default function ContactUsPage() {
+  const today = new Date()
+  const tomorrow = new Date(today.getTime() + 24 * 60 * 60 * 1000)
+  
   const [formData, setFormData] = useState({
     fullName: "",
-    startDate: "",
-    endDate: "",
+    startDate: today.toISOString().substring(0, 10),
+    endDate: tomorrow.toISOString().substring(0, 10),
     facilitator: "",
     participants: "",
     organization: "",
