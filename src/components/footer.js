@@ -1,7 +1,7 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { Link } from "gatsby"
 import { FaInstagram } from "@react-icons/all-files/fa/FaInstagram"
+import Logo from "../components/logo"
 
 const footerNavigation = [
   {
@@ -23,18 +23,6 @@ const footerNavigation = [
 function Footer() {
   const linkStyles = "hover:underline"
 
-  const query = graphql`
-    query NavBarQuery {
-      logo: file(name: { eq: "casa-patron-logo" }) {
-        childImageSharp {
-          gatsbyImageData
-        }
-      }
-    }
-  `
-
-  const { logo } = useStaticQuery(query)
-
   return (
     <>
       <footer
@@ -45,10 +33,7 @@ function Footer() {
           <div className="grid gap-10 lg:gap-2 lg:flex justify-center items-center lg:justify-between w-full grid-flow-row  ">
             <div className="flex justify-center relative right-2 sm:right-0">
               <Link to="/" className="w-[64px]">
-                <GatsbyImage
-                  image={getImage(logo)}
-                  alt="Casa Patron bird logo"
-                />
+                <Logo color="grey-blue" />
               </Link>
             </div>
             <div className="grid w-full items-center justify-center grid-cols-2 md:grid-cols-none md:max-w-lg lg:max-w-3xl md:auto-cols-auto md:grid-flow-col gap-6 lg:gap-12">

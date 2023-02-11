@@ -1,9 +1,10 @@
-import React, { useState } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import NavBar from "./navbar"
 import { useLocation } from "@reach/router"
 import { isHeroPage } from "../utils/helpers.js"
 import heroVideo from "../images/cp-hero-video.mp4"
+import { useUserAgent } from "../utils/hooks"
 
 export default function Header({ heroContent, heroImg, mobileHeroImg }) {
   const { pathname } = useLocation()
@@ -12,6 +13,20 @@ export default function Header({ heroContent, heroImg, mobileHeroImg }) {
   const headerClasses = `relative z-30 bg-black ${
     isHeroPage(pathname) ? "h-screen sm:h-[54vw]" : "h-16"
   }`
+  const { userAgent, isMobile } = useUserAgent()
+  const videoRef = useRef(null)
+
+  useEffect(() => {
+    console.log({ userAgent, isMobile })
+
+    if (!userAgent || !videoRef.current) return
+    if (!isMobile) {
+      const newSource = document.createElement("source")
+      newSource.src = `${window.location.href}${heroVideo}`
+      newSource.type = "video/mp4"
+      videoRef.current.appendChild(newSource)
+    }
+  }, [isMobile, videoRef.current])
 
   return (
     <header className={headerClasses}>
@@ -26,8 +41,9 @@ export default function Header({ heroContent, heroImg, mobileHeroImg }) {
               preload="none"
               id="hero-video"
               className="hidden sm:block relative z-10 w-full"
+              ref={videoRef}
             >
-              <source src={heroVideo} type="video/mp4" />
+              {/* <source src={heroVideo} type="video/mp4" /> */}
             </video>
           </div>
           {/* Mobile Hero Image */}
