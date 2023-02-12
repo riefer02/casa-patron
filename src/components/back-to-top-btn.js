@@ -33,6 +33,8 @@ export default function BackToTopButton() {
       className="h-8 w-8 shadow-md bg-secondary text-primary border-primary fixed bottom-14 md:bottom-20 left-2 md:left-6 lg:left-10 flex rounded-full items-center justify-center transition z-50"
       onClick={scrollToTop}
       style={visibleStyles}
+      type="button"
+      aria-label="back to top button"
     >
       <FaArrowUp className="text-xl" />
     </button>
