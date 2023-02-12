@@ -59,6 +59,7 @@ function Footer() {
               <a
                 href="https://www.instagram.com/casapatronalto/?hl=en"
                 target="_blank"
+                aria-label="instagram link for casa patron"
               >
                 <FaInstagram className="text-3xl text-grey-neutral" />
               </a>

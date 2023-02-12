@@ -17,7 +17,11 @@ const MyOrderedList = props => (
 )
 const MyListItem = props => <li className="text-base" {...props} />
 const MyButton = props => (
-  <button className="bg-secondary text-white p-2 rounded-md" {...props} />
+  <button
+    type="button"
+    className="bg-secondary text-white p-2 rounded-md"
+    {...props}
+  />
 )
 
 export {

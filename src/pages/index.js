@@ -53,7 +53,7 @@ export default function IndexPage({
       },
       headline: {
         spanText: "Magic",
-        spanColor: "#FF715B",
+        spanColor: "#1C68CB",
 
         headerText: "of the Mountains",
       },
@@ -85,7 +85,7 @@ export default function IndexPage({
       },
       headline: {
         spanText: "Create",
-        spanColor: "#28D679",
+        spanColor: "#1C68CB",
         headerText: "Memories",
       },
       paragraph: {
