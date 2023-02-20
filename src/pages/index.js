@@ -17,7 +17,6 @@ export default function IndexPage({
     winterTerraceImg,
     homeHeroImg,
     mobileHeroImg,
-    forestBeautyImg,
     blueBuildingImg,
     hotTubeImg,
     kitchenOneImg,
@@ -27,6 +26,23 @@ export default function IndexPage({
     ladyInRuinsImg,
     terraceSummerGamesImg,
     bienvenidosImg,
+    suiteChrisImg,
+    alexSuiteImg,
+    masterSuiteImg,
+    mountainViewImg,
+    whiteSandsImg,
+    greatRoomOfficeImg,
+    mountainAscentImg,
+    greatRoomChairImg,
+    birdCageNookImg,
+    singleBunksImg,
+    twinBunkImg,
+    greatRoom2Img,
+    mapImg,
+    mountainView2Img,
+    livingRoomBedImg,
+    booksImg,
+    forestBeautyImg,
   },
 }) {
   const panels = [
@@ -96,16 +112,32 @@ export default function IndexPage({
   ]
 
   const imagesGallery = [
-    terraceSummerGamesImg,
+    masterSuiteImg,
+    mountainViewImg,
     blueBuildingImg,
     kitchenOneImg,
-    ladyInRuinsImg,
+    greatRoomOfficeImg,
     valleyImg,
+    suiteChrisImg,
     hotTubeImg,
+    birdCageNookImg,
     bienvenidosImg,
     gardenMonkImg,
-    forestBeautyImg,
+    mountainAscentImg,
     kitchenTwoImg,
+    whiteSandsImg,
+    greatRoomChairImg,
+    ladyInRuinsImg,
+    singleBunksImg,
+    terraceSummerGamesImg,
+    twinBunkImg,
+    greatRoom2Img,
+    mapImg,
+    alexSuiteImg,
+    mountainView2Img,
+    livingRoomBedImg,
+    booksImg,
+    forestBeautyImg,
   ]
 
   return (
@@ -335,6 +367,86 @@ export const query = graphql`
       }
     }
     mobileHeroImg: file(name: { eq: "cp-terrace-beauty-winter" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    suiteChrisImg: file(name: { eq: "cp-chris-suite" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    alexSuiteImg: file(name: { eq: "cp-alex-suite" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    masterSuiteImg: file(name: { eq: "cp-master-suite-2" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    mountainViewImg: file(name: { eq: "cp-mountain-view" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    whiteSandsImg: file(name: { eq: "cp-white-sands" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    greatRoomOfficeImg: file(name: { eq: "cp-great-room-office" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    mountainAscentImg: file(name: { eq: "cp-mountain-ascent" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    greatRoomChairImg: file(name: { eq: "cp-great-room-chair" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    birdCageNookImg: file(name: { eq: "cp-bird-cage-nook" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    singleBunksImg: file(name: { eq: "cp-single-bunks" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    twinBunkImg: file(name: { eq: "cp-twin-bunk" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    greatRoom2Img: file(name: { eq: "cp-great-room-2" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    mapImg: file(name: { eq: "cp-mountain-map" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    mountainView2Img: file(name: { eq: "cp-mountain-view-2" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    livingRoomBedImg: file(name: { eq: "cp-living-room-bed" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    booksImg: file(name: { eq: "cp-books-bw" }) {
       childImageSharp {
         gatsbyImageData
       }
