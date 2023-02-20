@@ -6,7 +6,7 @@ import Logo from "../components/logo"
 const footerNavigation = [
   {
     label: "Contact Us",
-    url: "mailto:valerie@casapatronalto.com",
+    url: "mailto:chris@casapatronalto.com",
     externalLink: true,
     placeholder: false,
     id: "contact-us-link",

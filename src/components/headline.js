@@ -8,7 +8,7 @@ export default function Headline({
   postSpanText,
 }) {
   const styles =
-    "text-3xl md:text-4xl font-light lg:leading-[62.5px] mb-2 md:mb-4 lg:mb-2"
+    "text-3xl md:text-4xl font-light lg:leading-[62.5px] mb-4 md:mb-4 lg:mb-2"
 
   return (
     <h3 className={styles + " " + className}>

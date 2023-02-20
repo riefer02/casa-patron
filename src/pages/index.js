@@ -121,9 +121,8 @@ export default function IndexPage({
     suiteChrisImg,
     hotTubeImg,
     birdCageNookImg,
-    bienvenidosImg,
-    gardenMonkImg,
     mountainAscentImg,
+    bienvenidosImg,
     kitchenTwoImg,
     whiteSandsImg,
     greatRoomChairImg,
@@ -134,10 +133,11 @@ export default function IndexPage({
     greatRoom2Img,
     mapImg,
     alexSuiteImg,
-    mountainView2Img,
     livingRoomBedImg,
-    booksImg,
+    // booksImg,
+    gardenMonkImg,
     forestBeautyImg,
+    mountainView2Img,
   ]
 
   return (
