@@ -55,7 +55,7 @@ export default function DocsTemplate({
   return (
     <div
       className={`${
-        mobileNavActive ? "translate-x-[-60vw]" : ""
+        mobileNavActive ? "translate-x-[-60vw] fixed" : ""
       } transition ease-linear h-full max-h-[100vh] flex sm:fixed`}
     >
       <div
@@ -76,11 +76,11 @@ export default function DocsTemplate({
                       <Logo />
                     </Link>
                   </div>
-                  <div className="hidden sm:flex items-center sm:ml-6 text-white">
-                    Casa Patron Information
+                  <div className="hidden lg:flex items-center sm:ml-6 text-white">
+                    Casa Patrón Information
                   </div>
                 </div>
-                <div className="sm:hidden inset-y-0 right-0 flex items-center ">
+                <div className="lg:hidden inset-y-0 right-0 flex items-center ">
                   <Hamburger
                     toggle={mobileNavActive}
                     onClickHandler={handleMobileMenuOnClick}
@@ -88,14 +88,14 @@ export default function DocsTemplate({
                 </div>
               </div>
             </div>
-            <div className="hidden sm:block bg-secondary">
-              <div className="hidden sm:flex items-center sm:ml-6">
+            <div className="hidden lg:block bg-secondary">
+              <div className="hidden lg:flex items-center sm:ml-6">
                 <div className="flex space-x-4 w-full items-center justify-center">
                   {docs.nodes.map((node, index) => (
                     <Link
                       key={index}
                       to={node.frontmatter.slug}
-                      className={`${navLinkStyles} ${
+                      className={`${navLinkStyles} text-sm lg:text-base ${
                         index === docs.nodes.length - 1 ? "pr-0" : ""
                       }${
                         location.pathname === node.frontmatter.slug
@@ -112,15 +112,33 @@ export default function DocsTemplate({
             </div>
           </nav>
         </header>
-        <main className="max-w-3xl mx-auto px-4 sm:px-6 z-20 relative flex-grow mt-12">
+        <main className="max-w-3xl mx-auto px-4 sm:px-6 pb-16 z-20 relative flex-grow mt-20 sm:mt-12 lg:mt-8">
           <MDXProvider components={components}>{children}</MDXProvider>
         </main>
         <Footer />
       </div>
+      {/* Docs Mobile Nav */}
       <div
         onClick={handleMobileMenuOnClick}
-        className={`h-[100vh] w-[60vw] min-w-[60vw] z-50 fixed right-0 translate-x-[60vw] transition ease-linear ml-auto bg-rose-500 block sm:hidden`}
-      ></div>
+        className={`h-[100vh] w-[60vw] min-w-[60vw] border-l border-secondary z-50 fixed right-0 top-0 overflow-y-auto max-h-[100vh] translate-x-[60vw] transition ease-linear ml-auto bg-grey-neutral block lg:hidden`}
+      >
+        <div className="flex flex-col w-full items-start justify-start gap-4 h-full py-8 px-4">
+          {docs.nodes.map((node, index) => (
+            <Link
+              key={index}
+              to={node.frontmatter.slug}
+              className={`${navLinkStyles} ${
+                index === docs.nodes.length - 1 ? "pr-0" : ""
+              }${
+                location.pathname === node.frontmatter.slug ? "underline" : ""
+              }`}
+              aria-current="page"
+            >
+              {node.frontmatter.title}
+            </Link>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }
@@ -136,6 +154,7 @@ export const query = graphql`
     }
     docs: allMdx(
       filter: { internal: { contentFilePath: { regex: "/docs/" } } }
+      sort: { frontmatter: { order: ASC } }
     ) {
       nodes {
         id
