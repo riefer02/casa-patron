@@ -41,11 +41,11 @@ export default function PageTemplate({ data, children }) {
           {data.mdx.frontmatter.title}
         </h1>
         <hr className="mb-2"></hr>
-        <div className="flex items-center justify-between mb-2">
+        {/* <div className="flex items-center justify-between mb-2">
           <div className="">{data.mdx.frontmatter.author}</div>
           <div>{data.mdx.frontmatter.date}</div>
-        </div>
-        <hr className="mb-2"></hr>
+        </div> */}
+        {/* <hr className="mb-2"></hr> */}
         <MDXProvider components={components}>{children}</MDXProvider>
       </div>
     </Layout>
