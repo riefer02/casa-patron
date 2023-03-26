@@ -136,8 +136,8 @@ export default function IndexPage({
     livingRoomBedImg,
     // booksImg,
     gardenMonkImg,
-    forestBeautyImg,
-    // mountainView2Img,
+    // forestBeautyImg,
+    mountainView2Img,
   ]
 
   return (
