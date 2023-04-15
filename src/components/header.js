@@ -17,8 +17,6 @@ export default function Header({ heroContent, heroImg, mobileHeroImg }) {
   const videoRef = useRef(null)
 
   useEffect(() => {
-    console.log({ userAgent, isMobile })
-
     if (!userAgent || !videoRef.current) return
     if (!isMobile) {
       const newSource = document.createElement("source")

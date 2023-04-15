@@ -167,10 +167,10 @@ export default function IndexPage({
       <div className="py-5"></div>
       <div className="bg-grey-neutral text-primary py-4 rounded-3xl shadow-md border-2 border-primary border-opacity-80">
         <blockquote
-          class="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold !leading-[1.9] text-center mx-auto my-6 md:my-10 lg:my-12 px-6 md:px-8 lg:px-10 max-w-7xl"
+          className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold !leading-[1.9] text-center mx-auto my-6 md:my-10 lg:my-12 px-6 md:px-8 lg:px-10 max-w-7xl"
           aria-label="Description of Casa Patron's cozy cabin"
         >
-          <p class="mb-6">
+          <p className="mb-6">
             Unwind and recharge in nature. Casa Patron offer a serene and
             peaceful getaway from the hustle and bustle of daily life. With
             comfortable amenities and breathtaking views, you'll have everything
