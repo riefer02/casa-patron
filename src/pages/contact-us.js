@@ -110,15 +110,16 @@ export default function ContactUsPage() {
   return (
     <Layout>
       <div className="py-6 max-w-lg mx-auto">
-        <h1 className="font-bold text-3xl leading-[1.3] lg:leading-[1.5] mb-2">
+        <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-2">
           Contact Us
         </h1>
+        <hr className="mb-2"></hr>
         <p className="text-base mb-2">
           Interested in booking Casa Patron or facilitating a Leadership Retreat
           there? Answer the questions below and we will get back to as soon as
           possible.
         </p>
-        <hr className="mb-2"></hr>
+        {/* <hr className="mb-2"></hr> */}
         <form
           name="contact"
           onSubmit={handleSubmit}

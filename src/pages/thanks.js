@@ -6,10 +6,11 @@ export default function ThanksPage() {
   return (
     <Layout>
       <div className="py-6 max-w-lg mx-auto">
-        <h1 className="font-bold text-3xl leading-[1.3] lg:leading-[1.5] mb-2">
+        <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-2">
           Thank You!
         </h1>
-        <p className="text-base mb-2">
+        <hr className="mb-2"></hr>
+        <p className="text-lg lg:text-xl leading-relaxed pb-4">
           We will get back to you as soon as possible! Have a great day and
           cheers!
         </p>

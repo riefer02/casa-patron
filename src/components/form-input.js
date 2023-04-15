@@ -43,9 +43,14 @@ const Input = ({
   }, [])
 
   return (
-    <div className="flex flex-col items-center">
-      <label className="text-left leading-loose font-medium text-grey-neutral py-2 w-full">
-        {label}
+    <div className="flex flex-col items-center py-1">
+      <label className="text-leftleading-loose font-medium text-grey-neutral py-2 w-full flex gap-2 items-center justify-between">
+        <span>{label} </span>
+        {error && !isFocused && (
+          <span className="text-tertiary text-xs">
+            {camelToTitleCase(error)}
+          </span>
+        )}
       </label>
       <input
         className={`bg-white focus:border-tertiary focus:outline-none border shadow-md border-grey-neutral rounded-lg py-2 px-4 block w-full appearance-none leading-normal ${
@@ -60,11 +65,6 @@ const Input = ({
         onChange={handleChange}
         value={inputValue}
       />
-      <div className="p-2 h-8">
-        {error && !isFocused && (
-          <p className="text-tertiary">{camelToTitleCase(error)}</p>
-        )}
-      </div>
     </div>
   )
 }
