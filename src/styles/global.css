@@ -8,7 +8,8 @@ body {
 
 @layer base {
   body {
-    @apply text-grey-neutral;
+    /* @apply text-grey-neutral; */
+    background: #273240;
   }
 }
 
