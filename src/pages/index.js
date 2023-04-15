@@ -171,7 +171,7 @@ export default function IndexPage({
           aria-label="Description of Casa Patron's cozy cabin"
         >
           <p className="mb-6">
-            Unwind and recharge in nature. Casa Patron offer a serene and
+            Unwind and recharge in nature. Casa Patron offers a serene and
             peaceful getaway from the hustle and bustle of daily life. With
             comfortable amenities and breathtaking views, you'll have everything
             you need to relax and rejuvenate.
