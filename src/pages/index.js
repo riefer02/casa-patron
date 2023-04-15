@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -112,32 +112,36 @@ export default function IndexPage({
   ]
 
   const imagesGallery = [
-    masterSuiteImg,
-    mountainViewImg,
-    blueBuildingImg,
-    kitchenOneImg,
-    greatRoomOfficeImg,
-    valleyImg,
-    suiteChrisImg,
-    hotTubeImg,
-    birdCageNookImg,
-    mountainAscentImg,
-    bienvenidosImg,
-    kitchenTwoImg,
-    whiteSandsImg,
-    greatRoomChairImg,
-    ladyInRuinsImg,
-    singleBunksImg,
-    terraceSummerGamesImg,
-    twinBunkImg,
-    greatRoom2Img,
-    mapImg,
-    alexSuiteImg,
-    livingRoomBedImg,
-    // booksImg,
-    gardenMonkImg,
-    // forestBeautyImg,
-    mountainView2Img,
+    [
+      masterSuiteImg,
+      mountainViewImg,
+      blueBuildingImg,
+      kitchenOneImg,
+      greatRoomOfficeImg,
+      valleyImg,
+      suiteChrisImg,
+      hotTubeImg,
+      birdCageNookImg,
+      mountainAscentImg,
+      bienvenidosImg,
+      kitchenTwoImg,
+    ],
+    [
+      whiteSandsImg,
+      greatRoomChairImg,
+      ladyInRuinsImg,
+      singleBunksImg,
+      terraceSummerGamesImg,
+      twinBunkImg,
+      greatRoom2Img,
+      mapImg,
+      alexSuiteImg,
+      livingRoomBedImg,
+      // booksImg,
+      gardenMonkImg,
+      // forestBeautyImg,
+      mountainView2Img,
+    ],
   ]
 
   return (
@@ -157,9 +161,42 @@ export default function IndexPage({
       <Spacer className="hidden sm:block md:hidden" />
       <Spacer />
       <Spacer className="block sm:hidden" />
-      <ImageGallery images={imagesGallery} />
+      <ImageGallery images={imagesGallery[0]} />
+      {/* <Spacer sizeY={1} />
+      <Spacer className="block sm:hidden" /> */}
+      <div className="py-5"></div>
+      <div className="bg-grey-neutral text-primary py-4 rounded-3xl shadow-md border-2 border-primary border-opacity-80">
+        <blockquote
+          class="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold !leading-[1.9] text-center mx-auto my-6 md:my-10 lg:my-12 px-6 md:px-8 lg:px-10 max-w-7xl"
+          aria-label="Description of Casa Patron's cozy cabin"
+        >
+          <p class="mb-6">
+            Unwind and recharge in nature. Casa Patron offer a serene and
+            peaceful getaway from the hustle and bustle of daily life. With
+            comfortable amenities and breathtaking views, you'll have everything
+            you need to relax and rejuvenate.
+          </p>
+        </blockquote>
+      </div>
+      <div className="py-5"></div>
+
+      <ImageGallery images={imagesGallery[1]} />
+      <Spacer sizeY={1} />
+
+      <div className="flex flex-col items-center justify-center py-8 sm:py-16 max-w-xl mx-auto">
+        <h2 className="text-3xl sm:text-5xl font-bold mb-6 sm:mb-10">
+          Escape to Casa Patron
+        </h2>
+        <Link
+          to="/contact"
+          aria-label="Book Now"
+          className="bg-secondary transition hover:bg-tertiary text-white text-xl sm:text-3xl font-light rounded-full py-2 sm:py-3 px-6 sm:px-8 shadow-md hover:shadow-sm"
+        >
+          Book Now
+        </Link>
+      </div>
       <Spacer className="block md:hidden" />
-      <Spacer />
+      <Spacer sizeY={1} />
     </Layout>
   )
 }
