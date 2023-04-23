@@ -39,14 +39,12 @@ function validateForm(formData) {
 export default function ContactUsPage() {
   const today = new Date()
   const tomorrow = new Date(today.getTime() + 24 * 60 * 60 * 1000)
-  
+
   const [formData, setFormData] = useState({
     fullName: "",
     startDate: today.toISOString().substring(0, 10),
     endDate: tomorrow.toISOString().substring(0, 10),
-    facilitator: "",
     participants: "",
-    organization: "",
     email: "",
     phone: "",
   })
@@ -55,9 +53,7 @@ export default function ContactUsPage() {
     fullName: "",
     startDate: "",
     endDate: "",
-    facilitator: "",
     participants: "",
-    organization: "",
     email: "",
     phone: "",
   })
@@ -185,16 +181,7 @@ export default function ContactUsPage() {
             error={errors.phone}
             required={true}
           />
-          <Input
-            name="organization"
-            label="Organization Name"
-            placeholder="Enter your organization's name"
-            type="text"
-            onBlur={handleBlur}
-            value={formData.organization}
-            onChange={handleChange}
-            error={errors.organization}
-          />
+
           <Input
             name="participants"
             label="How many people will be attending?"
@@ -206,16 +193,7 @@ export default function ContactUsPage() {
             error={errors.participants}
             required={true}
           />
-          <Input
-            name="facilitator"
-            label="Are you self-facilitating or need an external facilitator?"
-            placeholder="Enter your choice"
-            type="text"
-            onBlur={handleBlur}
-            value={formData.facilitator}
-            onChange={handleChange}
-            error={errors.facilitator}
-          />
+
           <button
             type="submit"
             className={`bg-secondary text-primary shadow-md p-2 rounded-lg w-full mt-7 ${
