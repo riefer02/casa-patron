@@ -20,8 +20,7 @@ export default function Header({ heroContent, heroImg, mobileHeroImg }) {
     if (!userAgent || !videoRef.current) return
     if (!isMobile) {
       const newSource = document.createElement("source")
-      newSource.src =
-        "https://res.cloudinary.com/rief-prod/video/upload/v1682089845/casapatronalto/cp-hero-video_w6udfc.mp4"
+      newSource.src = heroVideo
       newSource.type = "video/mp4"
       videoRef.current.appendChild(newSource)
     }
