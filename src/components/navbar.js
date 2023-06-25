@@ -12,6 +12,10 @@ const navLinks = [
     url: "/",
   },
   {
+    label: "Activities",
+    url: "#activities",
+  },
+  {
     label: "Leadership Retreats",
     url: "/leadership-retreats",
   },

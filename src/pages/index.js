@@ -194,7 +194,7 @@ export default function IndexPage({
         <Link
           to="/contact-us/"
           aria-label="Book Now"
-          className="bg-secondary transition hover:bg-tertiary text-white text-xl sm:text-3xl font-light rounded-full py-2 sm:py-3 px-6 sm:px-8 shadow-md hover:shadow-sm"
+          className="bg-secondary transition hover:bg-tertiary text-white text-xl sm:text-2xl font-light rounded-full py-2 sm:py-2 px-6 sm:px-6 shadow-md hover:shadow-sm"
         >
           Book Now
         </Link>

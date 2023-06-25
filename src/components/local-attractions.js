@@ -4,7 +4,10 @@ import { localAttractions } from "../content/local-attractions/local-attractions
 export default function LocalAttractionCards() {
   return (
     <div>
-      <div className="mx-auto max-w-4xl w-full flex items-center justify-center">
+      <div
+        id="activities"
+        className="mx-auto max-w-4xl w-full flex items-center justify-center"
+      >
         <h3 className="text-xl lg:text-3xl font-bold w-full text-center mb-4 pb-4">
           Local Attractions
         </h3>
@@ -16,10 +19,10 @@ export default function LocalAttractionCards() {
             key={attraction.name}
           >
             <div className="px-2 pb-4 text-white">
-              <div className="font-bold text-xl mb-2 text-primary">{attraction.name}</div>
-              <p className="text-base">
-                {attraction.description}
-              </p>
+              <div className="font-bold text-xl mb-2 text-primary">
+                {attraction.name}
+              </div>
+              <p className="text-base">{attraction.description}</p>
             </div>
             <div>
               <div className="px-2 py-4">
