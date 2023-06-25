@@ -6,6 +6,7 @@ import Seo from "../components/seo"
 import JumboPanel from "../components/jumbo-panel"
 import Spacer from "../components/spacer"
 import ImageGallery from "../components/image-gallery"
+import LocalAttractionCards from "../components/local-attractions"
 
 // import * as styles from "../components/index.module.css"
 
@@ -178,8 +179,11 @@ export default function IndexPage({
           </p>
         </blockquote>
       </div>
-      <div className="py-5"></div>
+      <div className="pt-5"></div>
 
+      <Spacer sizeY={1} />
+      <LocalAttractionCards />
+      <Spacer sizeY={1} />
       <ImageGallery images={imagesGallery[1]} />
       <Spacer sizeY={1} />
 
