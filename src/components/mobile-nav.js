@@ -2,11 +2,11 @@ import React from "react"
 import { useLocation } from "@reach/router"
 import Fade from "./fade"
 import { Link } from "gatsby"
-import { useLockBodyScroll } from "../utils/hooks"
+// import { useLockBodyScroll } from "../utils/hooks"
 
 export default function MobileMenu({ toggle, navLinks, setMobileNavActive }) {
   const { pathname } = useLocation()
-  useLockBodyScroll()
+  // useLockBodyScroll()
 
   const onClickHandler = linkUrl => {
     if (pathname === linkUrl)
