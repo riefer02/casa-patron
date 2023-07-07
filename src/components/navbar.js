@@ -13,7 +13,7 @@ const navLinks = [
   },
   {
     label: "Activities",
-    url: "#activities",
+    url: "/#activities",
   },
   {
     label: "Leadership Retreats",
