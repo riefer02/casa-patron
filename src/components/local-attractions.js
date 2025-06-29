@@ -9,7 +9,7 @@ export default function LocalAttractionCards() {
         className="mx-auto max-w-4xl w-full flex items-center justify-center"
       >
         <h3 className="text-xl lg:text-3xl font-bold w-full text-center mb-4 pb-4">
-          Local Attractions
+          Local Attractions & Events
         </h3>
       </div>
       <div className="flex flex-wrap justify-center">
@@ -23,7 +23,44 @@ export default function LocalAttractionCards() {
                 {attraction.name}
               </div>
               <p className="text-base">{attraction.description}</p>
+
+              {/* Event Info Section */}
+              {attraction.eventInfo && (
+                <div className="mt-4 space-y-2">
+                  {attraction.eventInfo.dates && (
+                    <div>
+                      <h4 className="text-primary font-semibold">Dates:</h4>
+                      <p>{attraction.eventInfo.dates}</p>
+                    </div>
+                  )}
+
+                  {attraction.eventInfo.schedule && (
+                    <div>
+                      <h4 className="text-primary font-semibold">Schedule:</h4>
+                      {attraction.eventInfo.schedule.map((time, index) => (
+                        <p key={index}>{time}</p>
+                      ))}
+                    </div>
+                  )}
+
+                  {attraction.eventInfo.pricing && (
+                    <div>
+                      <h4 className="text-primary font-semibold">Admission:</h4>
+                      <p>{attraction.eventInfo.pricing}</p>
+                    </div>
+                  )}
+
+                  {attraction.eventInfo.notes && (
+                    <div>
+                      <p className="text-sm italic">
+                        {attraction.eventInfo.notes}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
+
             <div>
               <div className="px-2 py-4">
                 {attraction.tags.map(tag => (

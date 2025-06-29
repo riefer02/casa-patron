@@ -1,5 +1,33 @@
 export const localAttractions = [
   {
+    name: "Billy the Kid Pageant 2025",
+    url: "https://www.billyslastescape.org/",
+    description:
+      "Step back in time at the historic Billy the Kid Pageant, one of America's last remaining folk plays performed by local volunteers since 1940. Experience the dramatic reenactment of the Lincoln County War and Billy the Kid's legendary escape at the LPFC Pageant Grounds in Lincoln, NM.",
+    tags: ["history", "entertainment", "family"],
+    eventInfo: {
+      dates: "August 1-3, 2025",
+      schedule: [
+        "Friday, August 1st – 8:30 PM",
+        "Saturday, August 2nd – 8:30 PM",
+        "Sunday, August 3rd – 1:00 PM",
+      ],
+      pricing: "Adults: $10 | Children (6-12): $6 | Children 5 and under: FREE",
+      notes:
+        "Tickets available at the gate starting at 10 AM each day. Credit cards accepted, but cash recommended. Live Concert included with admission!",
+    },
+  },
+  {
+    name: "Alto Artists Studio Tour 2025",
+    url: "https://altoartists.org/tour-map-%26-brochure",
+    description:
+      "Explore the vibrant local art scene during the Alto Artists Studio Tour. Visit various artist studios and galleries throughout Alto, showcasing the diverse talents of our local creative community.",
+    tags: ["art", "culture", "local"],
+    eventInfo: {
+      dates: "August 1-3, 2025",
+    },
+  },
+  {
     name: "Ruidoso Downs Racetrack",
     url: "https://www.raceruidoso.com/",
     description:
